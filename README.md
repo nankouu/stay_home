@@ -22,4 +22,4 @@ stay_home
 ## 設計書
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1W1V3MHua1p6CL-9WEO7PUKl64ykD6dU3Hat38q85-do/edit#gid=0
+https://docs.google.com/spreadsheets/d/1W1V3MHua1p6CL-9WEO7PUKl64ykD6dU3Hat38q85-do/edit?usp=sharing
