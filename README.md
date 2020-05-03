@@ -1,24 +1,25 @@
-# README
+# <アプリ名>
+stay_home
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+家の中でできることや家の中で楽しむ方法などが
+投稿でき、共有することのできるサイト
 
-Things you may want to cover:
+### サイトテーマ
+家での暮らしを少しでも楽しく
 
-* Ruby version
+### テーマを選んだ理由
+コロナの蔓延により、自粛を求められる中で、
+自粛疲れという問題が発生しており、家で楽しむこと
+を他者と共有することで、癒しにならないかと考えたため。
 
-* System dependencies
+### ターゲットユーザ
+家で過ごすことに苦痛や孤独を感じている人々
 
-* Configuration
+### 主な利用シーン
+主に家で暇を感じる時
 
-* Database creation
+## 設計書
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1W1V3MHua1p6CL-9WEO7PUKl64ykD6dU3Hat38q85-do/edit#gid=0
