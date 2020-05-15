@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require popper
+//= require bootstrap-sprockets
+//
+// 無効なフィールドがある場合にフォーム送信を無効にするスターターJavaScriptの例

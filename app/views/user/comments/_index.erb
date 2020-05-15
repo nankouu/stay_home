@@ -1,0 +1,27 @@
+      <% if comment.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul>
+            <% comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+        <td>コメント数"<%= post.comments.count %>"</td>
+
+        <td></td>
+
+       </tbody>
+     </table>
+
+
+        <% post.comments.each do |comment| %>
+          <% unless comment.id.nil? %>
+            <p><%= link_to "#{comment.user.name}さん", user_user_path(comment.user.id) %></p>
+            <p>コメント：<%= comment.comment %></p>
+            <% if comment.user == current_user %>
+              <p><%= link_to 'コメントを削除する', user_post_comment_path(post,comment), method: :delete, remote: true %></p>
+            <% end %>
+          <% end %>
+        <% end %>

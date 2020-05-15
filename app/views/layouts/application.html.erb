@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <% if request.path.include?('admin') %>
+        <%= render 'layouts/admin' %>
+      <% else %>
+        <%= render 'layouts/user' %>
+      <% end %>
+    </header>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,16 @@
+<%= form_for(@post, url: user_posts_path, mehtod: :post) do |f|%>
+  <div class="field row">
+  	<%= f.label :title%>
+  	<%= f.text_field :title %>
+  </div>
+
+  <div class="field row">
+  	<%= f.label :body %>
+  	<%= f.text_area :body %>
+  </div>
+
+
+  <div class="actions row">
+  	<%= f.submit %>
+  </div>
+  <% end %>
