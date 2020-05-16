@@ -1,0 +1,22 @@
+<table class = "table table striped">
+	<thead>
+		<tr>
+			<th>body</th>
+			<th>title</th>
+		
+		</tr>
+	</thead>
+	<tbody>
+		<% @favorites.each do |favorite| %>
+			
+			
+		
+		<tr>
+			<td><%= favorite.post.title %></td>
+			<td><%= favorite.post.body %></td>
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+

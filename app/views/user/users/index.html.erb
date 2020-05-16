@@ -14,6 +14,13 @@
 					<td><%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
 					<td><%= user.name %></td>
 					<td><%= link_to "show",user_user_path(user) %></td>
+					<td>
+						<% if current_user.following?(user) %>
+							<%= button_to 'Unfollow',user_unfollow_path(user.id),method: :post,class:"btn btn-danger" %>
+						<% else %>
+							<%= button_to 'Follow',user_follow_path(user.id),method: :post,class:"btn btn-primary" %>
+						<% end %>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>

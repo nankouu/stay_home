@@ -1,0 +1,11 @@
+<p>検索</p>
+
+
+<ul><% @posts.each do |post| %>
+  <li>
+    <%= post.title %>
+    <%= post.created_at %>
+  </li>
+  <%= link_to "編集",edit_user_post_path(post) %>
+  <% end %>
+</ul>

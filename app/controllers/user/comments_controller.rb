@@ -6,7 +6,7 @@ class User::CommentsController < ApplicationController
   	comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
   	comment.save
-  	redirect_to user_post_path(post)
+  	redirect_to request.referer
   end
 
   def destroy

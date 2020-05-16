@@ -48,6 +48,10 @@ class User::PostsController < ApplicationController
     redirect_to user_posts_path
   end
 
+def search
+  @posts = Post.search(params[:search])
+end
+
   private
   def post_params
     params.require(:post).permit(:title,:body)

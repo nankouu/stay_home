@@ -20,9 +20,9 @@
 				<td><%= link_to post.title,user_post_path(post) %></td>
 				<td><%= post.body %></td>
 				<td><%= link_to "destroy",user_post_path(post),method: :delete %></td>
-				<td>
+				<td id= "favorite-<%= post.id %>">
 					<%= render 'user/favorites/favorite',post: post, user: @user %>
-					</td>
+				</td>
 
 			</tr>
 			<% end %>

@@ -1,11 +1,12 @@
 <% if post.favorited_by?(current_user) %>
     <td><%= link_to user_post_favorites_path(post), method: :delete, remote: true do %>
-      <%= post.favorites.count %>
-      <%= fa_icon("heart") %>
-    <% end %></td>
+	      <%= post.favorites.count %>
+	      <%= fa_icon("heart") %>
+	    <% end %>	
+    </td>
 <% else %>
 
     <td><%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
-      <%= post.favorites.count %> <%= fa_icon("heart-o") %>
-    <% end %></td>
+	      <%= post.favorites.count %> <%= fa_icon("heart-o") %>
+	    <% end %></td>
 <% end %>

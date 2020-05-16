@@ -6,11 +6,20 @@
 	         <%= link_to "Home",user_user_path(current_user) %>
 	         <%= link_to "Logout",destroy_user_session_path, method: :delete %>
 	        </ul>
-	  <form class="form-inline">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+			<div class="form">
+				<%= form_tag(search_user_posts_path,:method => 'get') do  %>
+				  <%= text_field_tag :search  %>
+				  <%= submit_tag 'Search', :name => nil ,class:"btn btn-outline-success my-2 my-sm-0" %>
+				<% end %>
+		    </div>
+		  
 	</nav>
 <% else %>
 <% end %>
 
+<style>
+.form {
+	margin-left: 60%;
+}
+	
+</style>
