@@ -1,0 +1,169 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200517-8395-1d25big.rb extconf.rb --use-system-libraries
+checking if the C compiler accepts ... yes
+Building nokogiri using system libraries.
+WARNING: libxml2 version 2.9.3 or later is highly recommended, but proceeding anyway.
+checking for xmlParseDoc() in libxml/parser.h... yes
+checking for xsltParseStylesheetDoc() in libxslt/xslt.h... yes
+checking for exsltFuncRegister() in libexslt/exslt.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+make "DESTDIR="
+compiling html_document.c
+compiling html_element_description.c
+compiling html_entity_lookup.c
+compiling html_sax_parser_context.c
+compiling html_sax_push_parser.c
+compiling nokogiri.c
+compiling xml_attr.c
+compiling xml_attribute_decl.c
+compiling xml_cdata.c
+compiling xml_comment.c
+compiling xml_document.c
+compiling xml_document_fragment.c
+compiling xml_dtd.c
+xml_dtd.c: 関数 ‘entities’ 内:
+xml_dtd.c:47:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->entities, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘notations’ 内:
+xml_dtd.c:69:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->notations, notation_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘attributes’ 内:
+xml_dtd.c:91:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->attributes, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘elements’ 内:
+xml_dtd.c:113:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->elements, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling xml_element_content.c
+compiling xml_element_decl.c
+compiling xml_encoding_handler.c
+compiling xml_entity_decl.c
+compiling xml_entity_reference.c
+compiling xml_io.c
+compiling xml_libxml2_hacks.c
+compiling xml_namespace.c
+compiling xml_node.c
+xml_node.c: 関数 ‘reparent_node_with’ 内:
+xml_node.c:304:7: 警告: passing argument 1 of ‘xmlFree’ discards ‘const’ qualifier from pointer target type [デフォルトで有効]
+       xmlFree(reparentee->ns->prefix);
+       ^
+xml_node.c:304:7: 備考: expected ‘void *’ but argument is of type ‘const xmlChar *’
+xml_node.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling xml_node_set.c
+compiling xml_processing_instruction.c
+compiling xml_reader.c
+compiling xml_relax_ng.c
+gcc   xml_relax_ng.o   -o xml_relax_ng
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o: 関数 `_start' 内:
+(.text+0x20): `main' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `read_memory' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:59: `rb_string_value_ptr' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:58: `xmlRelaxNGNewMemParserCtxt' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:63: `rb_ary_new' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:66: `Nokogiri_error_array_pusher' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:66: `xmlSetStructuredErrorFunc' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:69: `xmlRelaxNGSetParserStructuredErrors' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:76: `xmlRelaxNGParse' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:78: `xmlSetStructuredErrorFunc' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:79: `xmlRelaxNGFreeParserCtxt' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:91: `rb_data_object_wrap' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:92: `rb_iv_set' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:82: `xmlGetLastError' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:84: `Nokogiri_error_raise' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:86: `rb_eRuntimeError' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:86: `rb_raise' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `rb_data_object_get' 内:
+/home/vagrant/.rbenv/versions/2.5.7/include/ruby-2.5.0/ruby/ruby.h:1356: `rb_check_type' に対する定義されていない参照です
+/home/vagrant/.rbenv/versions/2.5.7/include/ruby-2.5.0/ruby/ruby.h:1356: `rb_check_type' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `validate_document' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:26: `rb_ary_new' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:28: `xmlRelaxNGNewValidCtxt' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:36: `Nokogiri_error_array_pusher' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:36: `xmlRelaxNGSetValidStructuredErrors' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:43: `xmlRelaxNGValidateDoc' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:45: `xmlRelaxNGFreeValidCtxt' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:32: `rb_eRuntimeError' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:32: `rb_raise' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `rb_data_object_get' 内:
+/home/vagrant/.rbenv/versions/2.5.7/include/ruby-2.5.0/ruby/ruby.h:1356: `rb_check_type' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `from_document' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:116: `xmlRelaxNGNewDocParserCtxt' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:118: `rb_ary_new' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:119: `Nokogiri_error_array_pusher' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:119: `xmlSetStructuredErrorFunc' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:122: `xmlRelaxNGSetParserStructuredErrors' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:129: `xmlRelaxNGParse' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:131: `xmlSetStructuredErrorFunc' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:143: `rb_data_object_wrap' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:144: `rb_iv_set' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:134: `xmlGetLastError' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:136: `Nokogiri_error_raise' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:138: `rb_eRuntimeError' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:138: `rb_raise' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `init_xml_relax_ng' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:152: `rb_define_module' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:153: `rb_define_module_under' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:154: `cNokogiriXmlSchema' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:154: `rb_define_class_under' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:158: `rb_define_singleton_method' に対する定義されていない参照です
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:159: `rb_define_singleton_method' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `dealloc' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:6: `xmlRelaxNGFree' に対する定義されていない参照です
+xml_relax_ng.o: 関数 `init_xml_relax_ng' 内:
+/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/xml_relax_ng.c:160: `rb_define_private_method' に対する定義されていない参照です
+collect2: エラー: ld はステータス 1 で終了しました
+make: *** [xml_relax_ng] エラー 1
+
+make failed, exit code 2
