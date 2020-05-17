@@ -1,92 +1,129 @@
 current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
-/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200517-15155-1vq54b0.rb extconf.rb
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200517-18368-etm75c.rb extconf.rb --use-system-libraries
 checking if the C compiler accepts ... yes
-Building nokogiri using packaged libraries.
-Using mini_portile version 2.4.0
-checking for gzdopen() in -lz... yes
-checking for iconv... yes
-************************************************************************
-IMPORTANT NOTICE:
+Building nokogiri using system libraries.
+WARNING: libxml2 version 2.9.3 or later is highly recommended, but proceeding anyway.
+checking for xmlParseDoc() in libxml/parser.h... yes
+checking for xsltParseStylesheetDoc() in libxslt/xslt.h... yes
+checking for exsltFuncRegister() in libexslt/exslt.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+creating Makefile
 
-Building Nokogiri with a packaged version of libxml2-2.9.10
-with the following patches applied:
-	- 0001-Revert-Do-not-URI-escape-in-server-side-includes.patch
-	- 0002-Remove-script-macro-support.patch
-	- 0003-Update-entities-to-remove-handling-of-ssi.patch
-	- 0004-libxml2.la-is-in-top_builddir.patch
-	- 0005-Fix-infinite-loop-in-xmlStringLenDecodeEntities.patch
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+make "DESTDIR=" clean
 
-Team Nokogiri will keep on doing their best to provide security
-updates in a timely manner, but if this is a concern for you and want
-to use the system library instead; abort this installation process and
-reinstall nokogiri as follows:
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+make "DESTDIR="
+compiling html_document.c
+compiling html_element_description.c
+compiling html_entity_lookup.c
+compiling html_sax_parser_context.c
+compiling html_sax_push_parser.c
+compiling nokogiri.c
+compiling xml_attr.c
+compiling xml_attribute_decl.c
+compiling xml_cdata.c
+compiling xml_comment.c
+compiling xml_document.c
+compiling xml_document_fragment.c
+compiling xml_dtd.c
+xml_dtd.c: 関数 ‘entities’ 内:
+xml_dtd.c:47:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->entities, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘notations’ 内:
+xml_dtd.c:69:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->notations, notation_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘attributes’ 内:
+xml_dtd.c:91:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->attributes, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: 関数 ‘elements’ 内:
+xml_dtd.c:113:3: 警告: 互換性のないポインタ型から 2 番目の ‘xmlHashScan’ の引数に渡しています [デフォルトで有効]
+   xmlHashScan((xmlHashTablePtr)dtd->elements, element_copier, (void *)hash);
+   ^
+In file included from /usr/include/libxml2/libxml/parser.h:18:0,
+                 from ./nokogiri.h:19,
+                 from ./xml_dtd.h:4,
+                 from xml_dtd.c:1:
+/usr/include/libxml2/libxml/hash.h:209:4: 備考: expected ‘xmlHashScanner’ but argument is of type ‘void (*)(void *, void *, const xmlChar *)’
+    xmlHashScan (xmlHashTablePtr table,
+    ^
+xml_dtd.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling xml_element_content.c
+compiling xml_element_decl.c
+compiling xml_encoding_handler.c
+compiling xml_entity_decl.c
+compiling xml_entity_reference.c
+compiling xml_io.c
+compiling xml_libxml2_hacks.c
+compiling xml_namespace.c
+compiling xml_node.c
+xml_node.c: 関数 ‘reparent_node_with’ 内:
+xml_node.c:304:7: 警告: passing argument 1 of ‘xmlFree’ discards ‘const’ qualifier from pointer target type [デフォルトで有効]
+       xmlFree(reparentee->ns->prefix);
+       ^
+xml_node.c:304:7: 備考: expected ‘void *’ but argument is of type ‘const xmlChar *’
+xml_node.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling xml_node_set.c
+compiling xml_processing_instruction.c
+compiling xml_reader.c
+compiling xml_relax_ng.c
+compiling xml_sax_parser.c
+compiling xml_sax_parser_context.c
+compiling xml_sax_push_parser.c
+compiling xml_schema.c
+compiling xml_syntax_error.c
+compiling xml_text.c
+compiling xml_xpath_context.c
+compiling xslt_stylesheet.c
+xslt_stylesheet.c:112:13: 警告: ‘swallow_superfluous_xml_errors’ が定義されましたが使用されません [-Wunused-function]
+ static void swallow_superfluous_xml_errors(void * userdata, xmlErrorPtr error, ...)
+             ^
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+linking shared-object nokogiri/nokogiri.so
+Cleaning files only used during build.
+rm -rf /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ports/archives
 
-    gem install nokogiri -- --use-system-libraries
-        [--with-xml2-config=/path/to/xml2-config]
-        [--with-xslt-config=/path/to/xslt-config]
-
-If you are using Bundler, tell it to use the option:
-
-    bundle config build.nokogiri --use-system-libraries
-    bundle install
-
-Note, however, that nokogiri is not fully compatible with arbitrary
-versions of libxml2 provided by OS/package vendors.
-************************************************************************
-Extracting libxml2-2.9.10.tar.gz into tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10... ERROR, review '/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/extract.log' to see what happened. Last lines are:
-========================================================================
-
-xiting with failure status due to previous errorsCannot hard link to `libxml2-2.9.10/test/relaxng/tutorA.rng'-class.xml'
-========================================================================
-*** extconf.rb failed ***
-Could not create Makefile due to some reason, probably lack of necessary
-libraries and/or headers.  Check the mkmf.log file for more details.  You may
-need configuration options.
-
-Provided configuration options:
-	--with-opt-dir
-	--without-opt-dir
-	--with-opt-include
-	--without-opt-include=${opt-dir}/include
-	--with-opt-lib
-	--without-opt-lib=${opt-dir}/lib
-	--with-make-prog
-	--without-make-prog
-	--srcdir=.
-	--curdir
-	--ruby=/home/vagrant/.rbenv/versions/2.5.7/bin/$(RUBY_BASE_NAME)
-	--help
-	--clean
-	--use-system-libraries
-	--enable-static
-	--disable-static
-	--with-zlib-dir
-	--without-zlib-dir
-	--with-zlib-include
-	--without-zlib-include=${zlib-dir}/include
-	--with-zlib-lib
-	--without-zlib-lib=${zlib-dir}/lib
-	--enable-cross-build
-	--disable-cross-build
-/home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:402:in `block in execute': Failed to complete extract task (RuntimeError)
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:373:in `chdir'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:373:in `execute'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:367:in `extract_file'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:62:in `block in extract'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:60:in `each'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:60:in `extract'
-	from /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/mini_portile2-2.4.0/lib/mini_portile2/mini_portile.rb:151:in `cook'
-	from extconf.rb:365:in `block (2 levels) in process_recipe'
-	from extconf.rb:257:in `block in chdir_for_build'
-	from extconf.rb:256:in `chdir'
-	from extconf.rb:256:in `chdir_for_build'
-	from extconf.rb:364:in `block in process_recipe'
-	from extconf.rb:262:in `tap'
-	from extconf.rb:262:in `process_recipe'
-	from extconf.rb:557:in `<main>'
-
-To see why this extension failed to compile, please check the mkmf.log which can be found here:
-
-  /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0/nokogiri-1.10.9/mkmf.log
-
-extconf failed, exit code 1
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.9/ext/nokogiri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20200517-18368-5zt1m0/nokogiri

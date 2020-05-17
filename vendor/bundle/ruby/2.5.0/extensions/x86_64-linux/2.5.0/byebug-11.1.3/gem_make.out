@@ -1,0 +1,19 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200517-22742-hy1l2g.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20200517-22742-k941xi/byebug

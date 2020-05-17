@@ -1,0 +1,15 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200517-22742-1qkala2.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20200517-22742-11axto1/skiptrace/internal
