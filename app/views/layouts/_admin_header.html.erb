@@ -1,0 +1,14 @@
+<logo>stay_home</logo>
+<% if admin_signed_in?%>
+	<nav class="navbar navbar-light">
+        <ul>
+	         <%= link_to "Users",admin_users_path %>
+	         <%= link_to "Posts",admin_posts_path %>
+	         <%= link_to "Genres",admin_genres_path %>
+	         <%= link_to "Logout",destroy_admin_session_path, method: :delete %>
+        </ul>
+
+	</nav>
+
+<% else %>
+<% end %>

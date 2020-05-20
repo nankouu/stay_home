@@ -1,2 +1,14 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
+<%= @user.name %>
+<br />
+<%= link_to "edit",edit_user_user_path %>
+<br />
+<%= link_to "back",user_users_path %>
+<br />
+<%= link_to "favorites",user_favorites_path %>
+<br />
+<%= link_to "フォロー", follows_user_user_path %>
+<br />
+<%= link_to "フォロワー",followers_user_user_path %>
+<br />
+<%= link_to "退会する",destroy_user_user_path,method: :patch,data: {confirm: "本当に退会しますか？"} %>

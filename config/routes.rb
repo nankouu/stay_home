@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-  end
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-  end
   root 'user/posts#index'
 
   namespace :admin do
   	resources :users, only: [:index, :show, :edit, :update, :destroy]
   	resources :posts, only: [:index, :show, :edit, :destroy]
-  	resources :genres, only: [:index, :create, :destroy]
+  	resources :genres, only: [:index, :create, :destroy ,:edit,:update]
   	root 'home#index'
   end
 
   namespace :user do
-    resources :users
+    resources :users ,only: [:show,:index,:edit,:update] do
+      member do
+        get :follows,:followers #フォロー、フォロワーページ
+        patch '/' => 'users#destroy', as: 'destroy'
+      end
+    end
   	resources :posts do
        resources :comments, only: [:create, :destroy]
   	   resource :favorites, only: [:create, :destroy]
@@ -25,9 +22,12 @@ Rails.application.routes.draw do
          get 'search'
        end
      end
-  	post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  	post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
-    resources :favorites,only: [:index]
+  	post 'follow/:id' => 'relations#follow', as: 'follow' # フォローする
+  	post 'unfollow/:id' => 'relations#unfollow', as: 'unfollow' # フォローを外す
+
+    resources :favorites,only: [:index] #お気に入り機能
+    get 'rooms/show'
+
   end
 
   devise_for :admins, controllers: {
@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions:      'user/users/sessions',
     passwords:     'user/users/passwords',
-    registrations: 'user/users/registrations'
+    registrations: 'user/users/registrations',
+    omniauth_callbacks: 'user/users/omniauth_callbacks'
   }
 
 

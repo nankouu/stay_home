@@ -14,9 +14,19 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
  @import "font-awesome";
 
  *{
  	color: #515151;
     font-family: 'Noto Sans JP';
  }
+
+.form {
+	margin-left: 60%;
+}
+
+logo {
+	margin-left: 40%;
+	font-size: 40px;
+}

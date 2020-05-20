@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
 	before_action :authenticate_user!
-  
+
   def index
   	@users = User.all
   end
@@ -22,16 +22,22 @@ class User::UsersController < ApplicationController
   	end
   end
 
-  def following
+  #退会する
+  def destroy
+    @user = User.find(current_user.id)
+    @user.toggle!(:is_cancel)
+    reset_session
+    redirect_to root_path
+  end
+
+  def follows
   	@user = User.find(params[:id])
   	@users = @user.follower_user
-    render :show_follow
   end
 
   def followers
   	@user = User.find(params[:id])
   	@users= @user.follower_user
-  	render :show_follower
   end
 
   def search

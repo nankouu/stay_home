@@ -1,12 +1,14 @@
-<% if post.favorited_by?(current_user) %>
-    <td><%= link_to user_post_favorites_path(post), method: :delete, remote: true do %>
-	      <%= post.favorites.count %>
-	      <%= fa_icon("heart") %>
-	    <% end %>	
-    </td>
-<% else %>
+<!-- いいね機能 -->
+	<% if post.favorited_by?(current_user) %>
+	    <td><%= link_to user_post_favorites_path(post), method: :delete, remote: true do %>
+		      <%= post.favorites.count %>
+		      <i class="fas fa-heart text-primary mb-0" aria-hidden="true"></i>
+		    <% end %>
+	    </td>
+	<% else %>
 
-    <td><%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
-	      <%= post.favorites.count %> <%= fa_icon("heart-o") %>
-	    <% end %></td>
-<% end %>
+	    <td><%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
+		      <%= post.favorites.count %> <i class="far fa-heart mb-0" aria-hidden="true"></i>
+		    <% end %></td>
+	<% end %>
+

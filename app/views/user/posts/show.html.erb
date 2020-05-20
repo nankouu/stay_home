@@ -1,26 +1,17 @@
-<table>
-	<thead>
-		<tr>
-			<th>image</th>
-			<th>title</th>
-			<th>body</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
-			<td><%= @post.title %></td>
-			<td><%= @post.body%></td>
-		</tr>
-	</tbody>
-</table>
 
-<%= @post.title %>
-<%= @post.body %>
+<%= attachment_image_tag @post, :image,:fill, 400,300, format: "jpeg",fallback:"no_image.jpg"%>
 
 <br />
+<strong><%= @post.title %></strong>
+
+<br />
+<%= @post.body%>
+
+<br />
+<%= link_to "destroy",user_post_path(@post),method: :delete %>
+
 <%= link_to "edit",edit_user_post_path(@post) %>
-<br />
+
 <%= link_to "back",user_posts_path(@posts) %>
 
 

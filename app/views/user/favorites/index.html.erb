@@ -3,18 +3,16 @@
 		<tr>
 			<th>body</th>
 			<th>title</th>
-		
+
 		</tr>
 	</thead>
 	<tbody>
 		<% @favorites.each do |favorite| %>
-			
-			
-		
+
 		<tr>
-			<td><%= favorite.post.title %></td>
+			<td><%= link_to favorite.post.title,user_post_path(favorite.post) %></td>
 			<td><%= favorite.post.body %></td>
-			
+
 		</tr>
 		<% end %>
 	</tbody>

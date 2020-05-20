@@ -6,3 +6,9 @@
 <%= link_to "back",user_users_path %>
 <br />
 <%= link_to "favorites",user_favorites_path %>
+<br />
+<%= link_to "フォロー", follows_user_user_path %>
+<br />
+<%= link_to "フォロワー",followers_user_user_path %>
+<br />
+<%= link_to "退会する",destroy_user_user_path,method: :patch,data: {confirm: "本当に退会しますか？"} %>

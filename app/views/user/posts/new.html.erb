@@ -1,6 +1,10 @@
 <%= form_for(@post, url: user_posts_path, mehtod: :post) do |f|%>
+
+  <label>Image</label>
+  <%= f.attachment_field :image %>
+
   <div class="field row">
-  	<%= f.label :title%>
+  	<%= f.label :title %>
   	<%= f.text_field :title %>
   </div>
 
@@ -13,4 +17,4 @@
   <div class="actions row">
   	<%= f.submit %>
   </div>
-  <% end %>
+<% end %>

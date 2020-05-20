@@ -1,0 +1,22 @@
+<logo>stay_home</logo>
+<% if user_signed_in?%>
+	<nav class="navbar navbar-light">
+        <ul>
+	         <%= link_to "Users",user_users_path %>
+	         <%= link_to "Posts",user_posts_path %>
+	         <%= link_to "Home",user_user_path(current_user) %>
+	         <%= link_to "投稿",new_user_post_path %>
+	         <%= link_to "Logout",destroy_user_session_path, method: :delete %>
+        </ul>
+			<div class="form">
+				<%= form_tag(search_user_posts_path,:method => 'get') do  %>
+				  <%= text_field_tag :search  %>
+				  <%= submit_tag 'Search', :name => nil ,class:"btn btn-outline-success my-2 my-sm-0" %>
+				<% end %>
+		    </div>
+
+	</nav>
+
+<% else %>
+<% end %>
+
