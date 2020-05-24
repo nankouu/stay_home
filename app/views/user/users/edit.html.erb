@@ -1,7 +1,35 @@
-<%= form_for(@user, url:user_user_path) do |f| %>
-	<label>Image</label>
-	<%= f.attachment_field :image %>
-    <h4>name</h4>
-    <%= f.text_field :name,autofocus: true, class:"form-control",placeholder:"name"%>
-    <h4><%= f.submit 'Update', class: "btn btn-default" %></h4>
-<% end %>
+<div class = "row">
+	<div class="col-md-6">
+		<%= form_for(@user, url:user_user_path,method: :patch) do |f| %>
+		   <div class="form-row mb-4">
+			    <div class="col">
+			      <div class="custom-file">
+			      <%= f.attachment_field :image,class: "custom-file-input" %>
+			      <label class="custom-file-label" for="customFile">画像のアップロード</label>
+			      </div>
+			    </div>
+		  </div>
+
+
+		  <div class="form-row mb-4">
+			    <div class="col">
+			    	<%= f.label :"自己紹介" %>
+			    	<%= f.text_field :introduction, class: "form-control" %>
+			    </div>
+		  </div>
+
+		  <div class="form-row mb-4">
+			    <div class="col">
+			    	<%= f.label :"name" %>
+			    	<%= f.text_field :name, class: "form-control" %>
+			    </div>
+		  </div>
+
+		  <div class="actions" style="text-align: right;">
+		   	 	<button type="submit" class="btn btn-secondary">投稿する</button>
+		  </div>
+
+		<% end %>
+	</div>
+
+</div>

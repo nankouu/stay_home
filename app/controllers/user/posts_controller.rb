@@ -2,14 +2,20 @@ class User::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
     @user = current_user
     @favorite = Favorite.new
+    if params[:category_id]
+      @selected_category = Category.find(params[:category_id])
+      @posts = Post.from_category(params[:category_id]).page(params[:page])
+    else
+      @posts = Post.all.page(params[:page])
+    end
   end
 
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
+    @genres = Genre.where(is_valid:'1')
   end
 
   def new
@@ -29,15 +35,18 @@ class User::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
+    @category_list = @post.categories.pluck(:name).join(",")
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    if @post.update(post_params)
+    @post = Post.find(params[:id])
+    category_list = params[:category_list]
+    if @post.update_attributes(post_params)
+      @post.save_categories(category_list)
       redirect_to user_post_path(@post)
     else
-      render :show
+      render :edit
     end
   end
 
@@ -47,12 +56,19 @@ class User::PostsController < ApplicationController
     redirect_to user_posts_path
   end
 
-def search
-  @posts = Post.search(params[:search])
-end
+  def search
+    @posts = Post.search(params[:search])
+  end
+
+  def following_posts
+    @posts_all = Post.includes(:user,:favorites)
+    @user = User.find(current_user.id)
+    @follow_users = @user.following_user
+    @posts = @posts_all.where(user_id: @follow_users).order("created_at DESC").page(params[:page]).per(10)
+  end
 
   private
-  def post_params
-    params.require(:post).permit(:title,:body,:image)
-  end
+    def post_params
+      params.require(:post).permit(:title,:body,:image,:genre_id,:tag_list)
+    end
 end

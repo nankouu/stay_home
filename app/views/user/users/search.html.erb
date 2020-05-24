@@ -1,0 +1,8 @@
+<p>検索</p>
+<p>ユーザ一覧</p>
+<% @users.each do |user| %>
+<li>
+	<%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
+	<%= link_to user.name,user_user_path(user) %>
+</li>
+<% end %>

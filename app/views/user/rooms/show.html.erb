@@ -1,9 +1,36 @@
-<h1>Chat room</h1>
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+<div class="row">
+    <div class="col-md-6">
 
-<div id="messages">
-  <%= render @messages %>
+        <h1><%= @room.name %></h1>
+
+        <h4>参加者</h4>
+        <% @entries.each do |e| %>
+          <%= link_to e.user.name, user_user_path(e.user_id) %>
+        <% end %>
+
+        <hr>
+        <% if @messages.present? %>
+          <% @messages.each do |m| %>
+            <strong><%= m.content %></strong>
+            <div style="text-align: right;">
+              <small>by <strong><%= m.user.name %>さん </strong><%= m.created_at %></small>
+            </div>
+
+            <hr>
+          <% end %>
+        <% else %>
+          <h3 class="text-center">メッセージはまだありません</h3>
+        <% end %>
+
+
+        <%= form_for @message, url:user_messages_path, method: :post do |f| %>
+          <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" ,class: "form-control" %>
+          <%= f.hidden_field :room_id, :value => @room.id %>
+          <br>
+          <%= f.submit "送信" ,class: "btn btn-primary" %>
+        <% end %>
+
+        <%= link_to "ユーザー一覧に戻る", user_users_path %>
+    </div>
 </div>
+

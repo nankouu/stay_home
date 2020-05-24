@@ -23,10 +23,78 @@
  }
 
 .form {
-	margin-left: 60%;
+	text-align: right;
+  height: 5rem;
 }
 
-logo {
-	margin-left: 40%;
-	font-size: 40px;
+.logo {
+	font-size: 1rem;
+	font-family: 'Baloo Bhaina 2';
+	text-decoration: none;
+  height: 5rem;
+}
+
+.user_image{
+	border-radius: 50%;
+}
+
+.link_text {
+  display: inline-block;
+  color: #515151;
+  text-decoration: none;
+}
+
+header ,footer {
+	background-color: #f1eeea;
+}
+
+.site_header {
+  height: 5rem;
+}
+
+.header_content {
+}
+
+.css-fukidashi {
+      padding: 0;
+      margin: 0;
+    }
+
+.fa-question {
+	position: relative;
+	cursor: pointer;
+}
+
+.fukidashi {
+   position   : absolute;
+  display: none;
+  padding: 2px;
+  background-color: rgba(102, 102, 255, 0.50);
+  width:180px;
+  left : 30%;
+  top : 100%;
+  margin-top : 12px;
+  font-size: 80%;
+}
+
+.fukidashi:after {
+   border-bottom: 12px solid rgba(102, 102, 255, 0.50);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -12px;
+  left : 5%;
+  content: "";
+  position: absolute;
+}
+
+.fa-question:hover + .fukidashi {
+  display: inline;
+}
+
+a,a:focus {
+  outline:none;
+}
+
+button,input,input:focus {
+  outline:none;
 }

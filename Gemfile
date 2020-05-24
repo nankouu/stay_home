@@ -76,6 +76,7 @@ gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 gem 'carrierwave'
 gem 'font-awesome-sass'
 gem 'dotenv-rails'
+gem 'acts-as-taggable-on'
 
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
@@ -84,3 +85,6 @@ gem 'omniauth-facebook'
 group :production do
   gem 'mysql2'
 end
+
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

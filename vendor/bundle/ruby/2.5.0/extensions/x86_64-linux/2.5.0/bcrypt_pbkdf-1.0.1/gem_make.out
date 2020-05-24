@@ -1,0 +1,25 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200521-3149-1akg7hi.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" clean
+make: Warning: File `Makefile' has modification time 1087 s in the future
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR="
+make: Warning: File `Makefile' has modification time 1087 s in the future
+compiling bcrypt_pbkdf.c
+compiling bcrypt_pbkdf_ext.c
+compiling blowfish.c
+compiling explicit_bzero.c
+compiling hash_sha512.c
+linking shared-object bcrypt_pbkdf_ext.so
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" install
+make: Warning: File `Makefile' has modification time 1086 s in the future
+/usr/bin/install -c -m 0755 bcrypt_pbkdf_ext.so ./.gem.20200521-3149-10uqblt
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.

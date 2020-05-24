@@ -1,0 +1,30 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200521-3149-1p0jani.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR=" clean
+make: Warning: File `Makefile' has modification time 1088 s in the future
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR="
+make: Warning: File `Makefile' has modification time 1088 s in the future
+compiling ed25519_ref10.c
+compiling fe.c
+compiling ge.c
+compiling keypair.c
+compiling open.c
+compiling sc_muladd.c
+compiling sc_reduce.c
+compiling sha512.c
+compiling sign.c
+compiling verify.c
+linking shared-object ed25519_ref10.so
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR=" install
+make: Warning: File `Makefile' has modification time 1085 s in the future
+/usr/bin/install -c -m 0755 ed25519_ref10.so ./.gem.20200521-3149-fzveyp
+make: 警告:  時刻のずれを検出. 不完全なビルド結果になるかもしれません.

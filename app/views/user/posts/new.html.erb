@@ -1,20 +1,47 @@
-<%= form_for(@post, url: user_posts_path, mehtod: :post) do |f|%>
+<div class = "row">
+  <div class="col-md-6">
 
-  <label>Image</label>
-  <%= f.attachment_field :image %>
+    <div class="d-flex flex-column">
+    <%= form_for(@post, url: user_posts_path, mehtod: :post) do |f|%>
 
-  <div class="field row">
-  	<%= f.label :title %>
-  	<%= f.text_field :title %>
+      <div class="form-row mb-4">
+        <div class="col">
+          <div class="custom-file">
+          <%= f.attachment_field :image,class: "custom-file-input" %>
+          <label class="custom-file-label" for="customFile">画像のアップロード</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row mb-4">
+        <div class="col">
+        	<%= f.label :"タイトル" %>
+        	<%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-row mb-4">
+        <div class="col">
+        	<%= f.label :"本文" %>
+        	<%= f.text_area :body,size: "20x10",class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-row mb-5">
+        <div class="col">
+          <%= f.label "カテゴリー" %>
+          <%= f.text_field :tag_list,value: @post.tag_list.join(','),class: "form-control" %>
+        </div>
+      </div>
+
+
+
+      <div class="actions" style="text-align: right;">
+        <button type="submit" class="btn btn-secondary">投稿する</button>
+      </div>
+
+    <% end %>
+    </div>
+
   </div>
-
-  <div class="field row">
-  	<%= f.label :body %>
-  	<%= f.text_area :body %>
-  </div>
-
-
-  <div class="actions row">
-  	<%= f.submit %>
-  </div>
-<% end %>
+</div>

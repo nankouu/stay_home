@@ -1,14 +1,80 @@
-<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
-<%= @user.name %>
-<br />
-<%= link_to "edit",edit_user_user_path %>
-<br />
-<%= link_to "back",user_users_path %>
-<br />
-<%= link_to "favorites",user_favorites_path %>
-<br />
-<%= link_to "フォロー", follows_user_user_path %>
-<br />
-<%= link_to "フォロワー",followers_user_user_path %>
-<br />
-<%= link_to "退会する",destroy_user_user_path,method: :patch,data: {confirm: "本当に退会しますか？"} %>
+<div class="row">
+   <div class="col-md-3  m-4 user_profile">
+	   	<div  style="text-align: center;">
+				<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image" %>
+			<br />
+				<strong><%= @user.name %></strong>
+			<br />
+				<small><%= @user.introduction %></small>
+		</div>
+		<div class="mb-2" style="text-align: center;">
+			<div class="d-flex align-items-start">
+				<div class="p-2">
+						<small>投稿</small>
+					<%= @user.posts.count %>
+				</div>
+				<div class="p-2">
+					<%= link_to follows_user_user_path do %>
+						<small>フォロー</small>
+						<%= @user.follower.count %>
+					<% end %>
+				</div>
+				<div class="p-2">
+					<%= link_to followers_user_user_path do%>
+						<small>フォロワー</small>
+						<%= @user.followed.count %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<br />
+		<div style="text-align: center">
+				<% if current_user.id == @user.id %>
+					<%= link_to "プロフィール編集",edit_user_user_path ,class:"btn btn-secondary" %>
+				<% end %>
+
+				<% unless @user.id == current_user.id %>
+				  <% if @isRoom == true %>
+				    <%= link_to "DMへGo!", user_room_path(@roomId),class:"btn btn-warning" %>
+				  <% else %>
+				    <%= form_for @room, url:user_rooms_path ,method: :post do |f| %>
+
+				      <%= fields_for @entry do |e| %>
+				        <%= e.hidden_field :user_id, :value=> @user.id %>
+				      <% end %>
+				      <%= f.submit "DMを始める",class:"btn btn-warning" %>
+				    <% end %>
+				  <% end %>
+				<% end %>
+		</div>
+	</div>
+
+
+
+	<div class="col-md-8">
+		<caption>すべての記事</caption>
+		<% @user.posts.each do |post| %>
+		<table class="table table-borderless">
+			<tbody>
+				<tr>
+					<td><%= link_to post.title,user_post_path(post) %></td>
+					<td style="text-align: right;"><small><%= post.created_at %></small></td>
+				</tr>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+
+
+</div>
+
+<style>
+.user_profile {
+	background-color: #f9f7f3;
+	padding-top: 3rem;
+	padding-bottom: 1rem;
+	border-radius: 5%;
+}
+
+</style>

@@ -33,6 +33,6 @@ class Admin::GenresController < ApplicationController
 
   	private
   	def genre_params
-  		params.require(:genre).permit(:name,:is_valid)
+  		params.require(:genre).permit(:name,:is_valid,:image)
   	end
 end

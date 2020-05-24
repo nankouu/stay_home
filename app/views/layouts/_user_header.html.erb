@@ -1,22 +1,51 @@
-<logo>stay_home</logo>
 <% if user_signed_in?%>
 	<nav class="navbar navbar-light">
-        <ul>
-	         <%= link_to "Users",user_users_path %>
-	         <%= link_to "Posts",user_posts_path %>
-	         <%= link_to "Home",user_user_path(current_user) %>
-	         <%= link_to "投稿",new_user_post_path %>
-	         <%= link_to "Logout",destroy_user_session_path, method: :delete %>
-        </ul>
-			<div class="form">
-				<%= form_tag(search_user_posts_path,:method => 'get') do  %>
-				  <%= text_field_tag :search  %>
-				  <%= submit_tag 'Search', :name => nil ,class:"btn btn-outline-success my-2 my-sm-0" %>
-				<% end %>
-		    </div>
+				<%= link_to "stay_home",user_posts_path ,class: "logo link_text" %>
 
+				<div class="form">
+						<%= form_tag(search_user_users_path,:method => 'get') do %>
+						  <%= text_field_tag :search %>
+						  <%= submit_tag 'Search', :name => nil ,class:"btn btn-outline-success my-2 my-sm-0" %>
+						<% end %>
+				</div>
+
+				<div class="container">
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li>
+		        	 <%= link_to user_users_path do %>
+		        	 	<h3 class="fas fa-home"></h3>
+		        	 <% end %>
+					</li>
+					<li>
+		        	 <%= link_to user_users_path do %>
+		        	 	<h3 class="fas fa-home"></h3>
+		        	 <% end %>
+		        	</li>
+		        	<li>
+
+			         <%= link_to user_users_path do %>
+			         	<h3 class="fas fa-users m-4"></h3>
+			         <% end %>
+			     	</li>
+
+			         <%= link_to user_user_path(current_user) do %>
+				         <%= attachment_image_tag current_user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"40x40",class: "user_image" %>
+				     <% end %>
+
+				     <%= link_to "投稿する",new_user_post_path,class: "m-4 btn btn-primary" %>
+						  <a class="fas fa-question m-5 link_text" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+					  	  </a>
+
+		        </ul>
+		    	</div>
+
+
+					<div class="collapse" id="collapseExample">
+					  <div class="card card-body">
+					    思いのままに家での暇つぶしや事や考えていることなど文章にしてユーザに共有しましょう。
+					  </div>
+					</div>
 	</nav>
 
-<% else %>
 <% end %>
 

@@ -16,7 +16,24 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
+
+  has_many :entries,dependent: :destroy
+  has_many :messages,dependent: :destroy
+  has_many :rooms, through: :entries
   attachment :image
+
+  	def self.search(search)
+      return User.all unless search
+      User.where(['name LIKE ?', "%#{search}%"])
+	end
+
+
+  	def self.guest
+	    find_or_create_by!(email: 'guest@example.com') do |user|
+	      user.name = 'ゲスト'
+	      user.password = SecureRandom.urlsafe_base64
+    	end
+	end
 
 
 	def self.without_sns_data(auth)
@@ -45,7 +62,7 @@ class User < ApplicationRecord
 	    user = User.where(id: snscredential.user_id).first
 	    unless user.present?
 	      user = User.new(
-	        nickname: auth.info.name,
+	        name: auth.info.name,
 	        email: auth.info.email,
 	      )
 	    end

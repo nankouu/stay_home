@@ -1,11 +1,23 @@
 <p>検索</p>
+<% if @user_or_post == "1" %>
+　<p>ユーザ一覧</p>
+	<% @user.each do |user| %>
+	<li>
+		<%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
+		<%= link_to user.name,user_user_path(user) %>
+	</li>
+	<% end %>
 
 
-<ul><% @posts.each do |post| %>
-  <li>
-    <%= post.title %>
-    <%= post.created_at %>
-  </li>
-  <%= link_to "編集",edit_user_post_path(post) %>
-  <% end %>
-</ul>
+<% elsif @user_or_post == "2" %>
+　<p>投稿一覧</p>
+	<ul><% @post.each do |post| %>
+	  <li>
+	    <%= link_to post.title,user_post_path(post) %>
+	    <%= post.created_at %>
+	  </li>
+	  <%= link_to "編集",edit_user_post_path(post) %>
+	  <% end %>
+	</ul>
+
+<% end %>

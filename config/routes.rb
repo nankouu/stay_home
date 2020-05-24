@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   root 'user/posts#index'
 
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
+
+  devise_scope :user do
+     post 'users/guest_sign_in', to: 'user/users/sessions#new_guest'
+   end
+
   namespace :admin do
   	resources :users, only: [:index, :show, :edit, :update, :destroy]
   	resources :posts, only: [:index, :show, :edit, :destroy]
@@ -12,7 +18,10 @@ Rails.application.routes.draw do
     resources :users ,only: [:show,:index,:edit,:update] do
       member do
         get :follows,:followers #フォロー、フォロワーページ
-        patch '/' => 'users#destroy', as: 'destroy'
+        post :destroy,as: 'destroy'
+      end
+      collection do
+        get 'search'
       end
     end
   	resources :posts do
@@ -20,13 +29,16 @@ Rails.application.routes.draw do
   	   resource :favorites, only: [:create, :destroy]
        collection do
          get 'search'
+         get "following_posts"
        end
      end
   	post 'follow/:id' => 'relations#follow', as: 'follow' # フォローする
   	post 'unfollow/:id' => 'relations#unfollow', as: 'unfollow' # フォローを外す
+    resources :rooms,only: [:create,:show,:index]
+    resources :messages,only: [:create]
+
 
     resources :favorites,only: [:index] #お気に入り機能
-    get 'rooms/show'
 
   end
 

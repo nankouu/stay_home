@@ -11,6 +11,7 @@
 
   <body>
     <header>
+
       <% if request.path.include?('admin') %>
         <%= render 'layouts/admin_header' %>
       <% else %>
@@ -18,7 +19,9 @@
       <% end %>
     </header>
     <div class="container mt-5 mb-auto">
+      <div class="body_text">
     <%= yield %>
+      </div>
     </div>
 
     <footer class="border-top mt-5">
@@ -26,11 +29,11 @@
         <% if request.path.include?('admin') %>
           <%= render 'layouts/admin_footer' %>
         <% else %>
-          <%= render 'layouts/user_footer' %>
+          <%= render 'layouts/user_footer',post: @post,user: @user %>
         <% end %>
 
-        <div class="jumbotron　h-25" style="background-color: #fb5454">
-          <div class="text-center text-white">©stay_home</div>
+        <div class="jumbotron h-25" style="background-color: #fff">
+          <div class="text-center text-primary">©stay_home</div>
         </div>
       </footer>
   </body>
