@@ -1,4 +1,8 @@
-<% @user.following_user.each do |user| %>
-	<td><%= user.name %></td>
-	<td><%= link_to 'show', user_user_path(user) %></td>
-<% end %>
+<div class="row">
+	<div class="col-md-3">
+	</div>
+
+	<div class="col-md-7 border" style="background-color: #fff">
+		<%= render 'users',users: @users %>
+	</div>
+</div>

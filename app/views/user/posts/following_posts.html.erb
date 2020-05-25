@@ -1,13 +1,29 @@
 <div class = "row">
+	<div class="col-md-3"></div>
 	<div class="col-md-6">
 		<h2>タイムライン</h2>
 		<% @posts.each do |post| %>
 		<table class="table table-borderless">
-			<tbody>
+			<tbody class="card">
 				<tr>
-					<td><%= attachment_image_tag post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: 'user_image' %></td>
+					<td><%= link_to user_user_path(post.user) do %>
+							<%= attachment_image_tag post.user,:image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image" %>
+							<%= post.user.name %>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+				<td style="padding: 0;">
+					<%= link_to user_post_path(post) do %>
+						<%= attachment_image_tag post, :image,:fill, 500,600, format: "jpeg",fallback:"no_image.jpg",size:"600x600" %>
+					<% end %>
+				</td>
+				</tr>
+				<tr>
+					<td><%= render 'user/favorites/favorite' ,post: post %></td>
+				</tr>
+				<tr>
 					<td><%= link_to post.title,user_post_path(post) %></td>
-					<td style="text-align: right;"><small><%= post.created_at %></small></td>
 				</tr>
 			</tbody>
 		</table>
@@ -15,3 +31,4 @@
 	</div>
 
 </div>
+

@@ -1,11 +1,13 @@
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-3">
+	</div>
+	<div class="col-md-7">
 		<div style="padding-top: 10px;">
 			<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg" ,class: "user_image" %>
 			<%= @post.user.name %>
 		</div>
 		<br />
-		<%= attachment_image_tag @post, :image,:fill, 400,200, format: "jpeg",fallback:"no_image.jpg"%>
+		<%= attachment_image_tag @post, :image,:fill, 600,700, format: "jpeg",fallback:"no_image.jpg"%>
 
 		<br />
 		<strong style="font-size: 3rem"><%= @post.title %></strong>
@@ -22,20 +24,14 @@
 
 		<%= link_to "back",user_posts_path(@posts) %>
 
-	</div>
-</div>
 
-<div class="border"></div>
+			<div class="border"></div>
 
-
-<div class="row">
-	<div class="col-md-10">
 		<div id = "comments_area">
 			<%= render 'user/comments/index',post: @post,user: @user,comment: @comment %>
 		</div>
 			<%= render 'user/comments/form',post: @post,comment: @comment %>
 	</div>
-
 </div>
 
 

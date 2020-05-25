@@ -16,11 +16,18 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import "font-awesome";
+ @import "slick-theme";
+ @import "slick";
 
  *{
  	color: #515151;
     font-family: 'Noto Sans JP';
  }
+
+body {
+  padding-top: 60px;
+  background-color: #fafafa;
+}
 
 .form {
 	text-align: right;
@@ -45,11 +52,11 @@
 }
 
 header ,footer {
-	background-color: #f1eeea;
+	background-color: #fff;
 }
 
-.site_header {
-  height: 5rem;
+.fixed-top {
+  height: 4rem;
 }
 
 .header_content {
@@ -97,4 +104,11 @@ a,a:focus {
 
 button,input,input:focus {
   outline:none;
+}
+
+.user_profile {
+  background-color: #fff;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  border-radius: 5%;
 }

@@ -1,51 +1,52 @@
-<% if user_signed_in?%>
-	<nav class="navbar navbar-light">
-				<%= link_to "stay_home",user_posts_path ,class: "logo link_text" %>
+<% if user_signed_in? %>
+<div class="container-fluid">
+	<div class="fixed-top border-bottom" style="background-color: #fff">
+		<nav class="navbar navbar-light">
+					<%= link_to "stay_home",user_posts_path ,class: "logo link_text" %>
 
-				<div class="form">
-						<%= form_tag(search_user_users_path,:method => 'get') do %>
-						  <%= text_field_tag :search %>
-						  <%= submit_tag 'Search', :name => nil ,class:"btn btn-outline-success my-2 my-sm-0" %>
-						<% end %>
-				</div>
+					<div class="form">
+							<%= form_tag(search_user_users_path,:method => 'get') do %>
+							  <%= text_field_tag :search %>
+							  <%= submit_tag '投稿検索', :name => nil ,class:"btn btn-outline-success btn-sm" %>
+							<% end %>
+					</div>
+			<ul class="nav pull-right nav-pills" style="margin-bottom: 2rem;">
+			     <li class="nav-item">
+			     	<%= link_to user_posts_path do %><h4 class="fas fa-home nav-link"></h4><% end %>
+			     </li>
+			     <li class="nav-item">
+			     	<%= link_to  following_posts_user_posts_path do %><h4 class="far fa-compass nav-link"></h4><% end %>
+			     </li>
+			     <li class="nav-item">
+			     	<%= link_to user_favorites_path do %><h4 class="fas fa-heart nav-link"></h4><% end %>
+			     </li>
+			     <li class="nav-item">
+			     	<%= link_to user_rooms_path do %><h4 class="far fa-paper-plane nav-link"></h4><% end %>
+			     </li>
+			     <li class="nav-item">
+			     	<%= link_to user_users_path do %><h4 class="fas fa-users nav-link"></h4><% end %>
+			     </li>
+			     <li class="nav-item">
+			     	<div class="nav-link">
+			     	<%= link_to user_user_path(current_user) do %>
+			     		<%= attachment_image_tag current_user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"40x40",class: "user_image" %>
+					<% end %>
+				  </div>
+			     </li>
+			     <li class="nav-item">
+			     	<%= link_to "投稿する",new_user_post_path,class: "btn btn-primary btn-sm" %>
+			     </li>
+			     	<a class="fas fa-question link_text nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+			</ul>
+		</nav>
+	</div>
+</div>
 
-				<div class="container">
-		        <ul class="nav navbar-nav navbar-right">
-		        	<li>
-		        	 <%= link_to user_users_path do %>
-		        	 	<h3 class="fas fa-home"></h3>
-		        	 <% end %>
-					</li>
-					<li>
-		        	 <%= link_to user_users_path do %>
-		        	 	<h3 class="fas fa-home"></h3>
-		        	 <% end %>
-		        	</li>
-		        	<li>
-
-			         <%= link_to user_users_path do %>
-			         	<h3 class="fas fa-users m-4"></h3>
-			         <% end %>
-			     	</li>
-
-			         <%= link_to user_user_path(current_user) do %>
-				         <%= attachment_image_tag current_user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"40x40",class: "user_image" %>
-				     <% end %>
-
-				     <%= link_to "投稿する",new_user_post_path,class: "m-4 btn btn-primary" %>
-						  <a class="fas fa-question m-5 link_text" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-					  	  </a>
-
-		        </ul>
-		    	</div>
-
-
-					<div class="collapse" id="collapseExample">
+	<div class="collapse" id="collapseExample">
 					  <div class="card card-body">
 					    思いのままに家での暇つぶしや事や考えていることなど文章にしてユーザに共有しましょう。
 					  </div>
-					</div>
-	</nav>
+				</div>
 
 <% end %>
 

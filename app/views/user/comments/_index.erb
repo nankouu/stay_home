@@ -19,8 +19,8 @@
         <% post.comments.each do |comment| %>
           <% unless comment.id.nil? %>
             <p><%= attachment_image_tag comment.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image"%>
-            <%= link_to "#{comment.user.name}さん", user_user_path(comment.user.id) %></p>
-            <p><%= comment.comment %>
+            <%= comment.comment %></p>
+            <%= link_to "#{comment.user.name}", user_user_path(comment.user.id) %>
             <% if comment.user == current_user %>
             <div style="text-align: right;">
               <%= link_to '削除する', user_post_comment_path(post,comment), method: :delete, remote: true ,class:"btn btn-danger" %></p>

@@ -3,6 +3,7 @@ class User::PostsController < ApplicationController
 
   def index
     @user = current_user
+    @users = User.all
     @favorite = Favorite.new
     if params[:category_id]
       @selected_category = Category.find(params[:category_id])

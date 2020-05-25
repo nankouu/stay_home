@@ -1,6 +1,6 @@
 <table class = "table table-borderless" style="table-layout:fixed;">
 			<tbody>
-				<% @users.each do |user| %>
+				<% users.each do |user| %>
 				<tr>
 					<td style="width:150px"><%= link_to user_user_path(user) do %>
 						<%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image" %>

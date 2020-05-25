@@ -1,0 +1,53 @@
+<p style="text-align: left; opacity: 50%;"><strong>フォローする人を見つけよう</strong></p>
+<div class="slick-box<%= slick_number %>">
+	<% users.each do |user| %>
+		<%= link_to user_user_path(user), class:"no_decoration" do %>
+		<div class="slick_capsule">
+			<div class = "slick_body card">
+		    	<%= attachment_image_tag user, :image, :fill, 60, 60, fallback: "no_image.jpg", size:"60x60",class: "slick_image" %>
+		    	<p><%= user.name %></p>
+              <p><% if current_user.following?(user) %>
+                <%= button_to 'フォロー中',user_unfollow_path(user.id),method: :post,class:"border btn btn-light btn-sm",data: {confirm: "フォローを外しますか？"}  %>
+              <% else %>
+                <%= button_to 'フォロー',user_follow_path(user.id),method: :post,class:"btn btn-primary btn-sm" %>
+              <% end %>
+            </p>
+		    </div>
+		</div>
+	    <% end %>
+	<% end %>
+</div>
+
+<style>
+  .no_decoration{
+    text-decoration: none;
+  }
+.slick_capsule{
+  width :200px;
+  max-height: 200px;
+}
+
+.slick_body {
+  height: 200px;
+  width: 180px;
+  overflow:   hidden;
+  position:   relative;
+}
+.slick_image {
+  border-radius: 50%;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+
+</style>
+
+<script type="text/javascript">
+
+$('.slick-box<%= slick_number %>').slick({
+    arrows: true,
+    autoplay: true,
+    slidesToShow: 5,
+    slidesToScroll: 2,
+});
+</script>

@@ -1,7 +1,7 @@
 <div class="row">
-   <div class="col-md-3  m-4 user_profile">
+   <div class="col-md-3  m-4 user_profile border">
 	   	<div  style="text-align: center;">
-				<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image" %>
+				<%= attachment_image_tag @user, :image,:fill, 70,70, format: "jpeg",fallback:"no_image.jpg",size:"70x70",class: "user_image" %>
 			<br />
 				<strong><%= @user.name %></strong>
 			<br />
@@ -53,28 +53,6 @@
 
 
 	<div class="col-md-8">
-		<caption>すべての記事</caption>
-		<% @user.posts.each do |post| %>
-		<table class="table table-borderless">
-			<tbody>
-				<tr>
-					<td><%= link_to post.title,user_post_path(post) %></td>
-					<td style="text-align: right;"><small><%= post.created_at %></small></td>
-				</tr>
-			</tbody>
-		</table>
-		<% end %>
+		<%= render 'user/posts/posts',posts: @user.posts %>
 	</div>
-
-
 </div>
-
-<style>
-.user_profile {
-	background-color: #f9f7f3;
-	padding-top: 3rem;
-	padding-bottom: 1rem;
-	border-radius: 5%;
-}
-
-</style>

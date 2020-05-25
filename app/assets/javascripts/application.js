@@ -14,8 +14,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require popper
 //= require bootstrap-sprockets
+//= require_tree .
 //
 // 無効なフィールドがある場合にフォーム送信を無効にするスターターJavaScriptの例

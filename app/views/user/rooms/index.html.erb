@@ -1,0 +1,14 @@
+
+<table>
+	<% @anotherEntries.each do |e| %>
+	<tbody>
+		<tr>
+			<td>
+			<%= link_to user_room_path(e.room.id) do %>
+			<%= attachment_image_tag e.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image" %></td>
+			<td><%= e.user.name %>とのDM</td>
+			<% end %>
+		</tr>
+	</tbody>
+	<% end %>
+</table>

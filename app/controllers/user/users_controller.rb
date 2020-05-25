@@ -2,7 +2,7 @@ class User::UsersController < ApplicationController
 	before_action :authenticate_user!
 
   def index
-  	@users = User.all
+    @users = User.search(params[:search])
   end
 
    def show
@@ -32,9 +32,9 @@ class User::UsersController < ApplicationController
   end
 
   def update
-  	@user = User.find_by(id: params[:id])
+  	@user = User.find(params[:id])
   	if @user.update!(user_params)
-  		redirect_to user_users_path
+  		redirect_to user_user_path(@user)
   	else
   		render :edit
   	end
@@ -50,12 +50,12 @@ class User::UsersController < ApplicationController
 
   def follows
   	@user = User.find(params[:id])
-  	@users = @user.follower_user
+    @users= @user.following_user
   end
 
   def followers
   	@user = User.find(params[:id])
-  	@users= @user.follower_user
+  	@users = @user.follower_user
   end
 
   def search
@@ -64,7 +64,7 @@ class User::UsersController < ApplicationController
 
   private
   def user_params
-  	params.require(:user).permit(:name,:imagem,:introduction)
+  	params.require(:user).permit(:name,:image,:introduction)
   end
 
 
