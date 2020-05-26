@@ -1,4 +1,5 @@
 <div class="row">
+    <div class="col-md-3"></div>
     <div class="col-md-6">
 
         <h1><%= @room.name %></h1>
@@ -27,10 +28,12 @@
           <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" ,class: "form-control" %>
           <%= f.hidden_field :room_id, :value => @room.id %>
           <br>
-          <%= f.submit "送信" ,class: "btn btn-primary" %>
+          <div style="text-align: right;">
+            <%= f.submit "送信" ,class: "btn btn-primary mb-5" %>
+          </div>
         <% end %>
 
-        <%= link_to "ユーザー一覧に戻る", user_users_path %>
+        <%= link_to "DM一覧に戻る", user_rooms_path ,class: "btn btn-outline-danger" %>
     </div>
 </div>
 

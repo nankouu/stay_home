@@ -20,10 +20,23 @@
 				</td>
 				</tr>
 				<tr>
-					<td><%= render 'user/favorites/favorite' ,post: post %></td>
+					<td>
+						<% if post.favorited_by?(current_user) %>
+						    <%= link_to user_post_favorites_path(post), method: :delete, remote: true do %>
+							      <h4 class="fas fa-heart text-danger mb-0" aria-hidden="true"></h4>
+							<% end %>
+						<% else %>
+						    <%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
+							      <h4 class="far fa-heart mb-0" aria-hidden="true"></h4>
+							<% end %>
+						<% end %>
+					</td>
 				</tr>
 				<tr>
 					<td><%= link_to post.title,user_post_path(post) %></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;border-top: solid;"><small><%= raw(post.tag_list.map { |t| link_to t, user_tag_path(t) }.join(', ')) %></small></td>
 				</tr>
 			</tbody>
 		</table>

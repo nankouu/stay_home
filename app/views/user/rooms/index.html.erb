@@ -1,14 +1,21 @@
-
-<table>
-	<% @anotherEntries.each do |e| %>
-	<tbody>
-		<tr>
-			<td>
-			<%= link_to user_room_path(e.room.id) do %>
-			<%= attachment_image_tag e.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image" %></td>
-			<td><%= e.user.name %>とのDM</td>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-8">
+		<table class = "table table-borderless border" style="background-color: #fff;">
+			<% @anotherEntries.each do |e| %>
+			<tbody>
+				<tr>
+					<td>
+						<%= link_to user_room_path(e.room.id) do %>
+							<%= attachment_image_tag e.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image" %>
+							<%= e.user.name %>
+						<% end %>
+					</td>
+					<td style="padding-top: 1.5rem; opacity: 0.6;">
+						<%= Message.find_by(id: e.room.message_ids.last).content %></td>
+				</tr>
+			</tbody>
 			<% end %>
-		</tr>
-	</tbody>
-	<% end %>
-</table>
+		</table>
+	</div>
+</div>

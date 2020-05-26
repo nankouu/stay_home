@@ -1,5 +1,5 @@
 <% posts.each do |post| %>
-<div class="d-inline-block posts mb-3 mr-5">
+<div class="d-inline-block posts mb-3 mr-4">
 	<%= link_to user_post_path(post) do %>
     <div class = "sample3">
     	<div class = "mask">
@@ -10,7 +10,8 @@
       		</strong>
       	</div>
       </div>
-		  <%= attachment_image_tag post, :image,:fill, 292,292, format: "jpeg",fallback:"no_image.jpg" %>
+		  <%= attachment_image_tag post, :image,:fill, 292,292, format: "jpeg" %>
+
 
     </div>
 	<% end %>

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   	post 'unfollow/:id' => 'relations#unfollow', as: 'unfollow' # フォローを外す
     resources :rooms,only: [:create,:show,:index]
     resources :messages,only: [:create]
+    get 'tags/:tag', to: 'posts#index', as: :tag
 
 
     resources :favorites,only: [:index] #お気に入り機能

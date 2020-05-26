@@ -3,8 +3,10 @@
 	</div>
 	<div class="col-md-7">
 		<div style="padding-top: 10px;">
-			<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg" ,class: "user_image" %>
-			<%= @post.user.name %>
+			<%= link_to user_user_path(@post.user) do %>
+				<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg" ,class: "user_image" %>
+				<%= @post.user.name %>
+			<% end %>
 		</div>
 		<br />
 		<%= attachment_image_tag @post, :image,:fill, 600,700, format: "jpeg",fallback:"no_image.jpg"%>
@@ -26,6 +28,7 @@
 
 
 			<div class="border"></div>
+			<%= render 'user/favorites/favorite',post: @post %>
 
 		<div id = "comments_area">
 			<%= render 'user/comments/index',post: @post,user: @user,comment: @comment %>

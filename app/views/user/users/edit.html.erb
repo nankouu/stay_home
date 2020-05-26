@@ -30,6 +30,30 @@
 		  </div>
 
 		<% end %>
-	</div>
 
-</div>
+
+
+
+		<% @user.posts.each do |post| %>
+		<div class="d-inline-block posts mb-3 mr-5">
+			<%= link_to user_post_path(post) do %>
+		    <div class = "sample3">
+		    	<div class = "mask">
+		    	  <div class ="caption">
+		    	  	<strong>
+		    	  		<i class="fa fa-heart m-1" style="color: #fff;"><%= post.favorites.count %></i>
+		    			  <i class="fas fa-comment" style="color: #fff;"><%= post.comments.count %></i>
+		      		</strong>
+		      	</div>
+		      </div>
+				  <%= attachment_image_tag post, :image,:fill, 292,292, format: "jpeg" %>
+
+		    </div>
+			<% end %>
+			<p class="mb-0 text-right mr-1" style="line-height: 1rem;">
+				<small><strong><%= post.title %></strong></small>
+			</p>
+		</div>
+	</div>
+		<% end %>
+	</div>

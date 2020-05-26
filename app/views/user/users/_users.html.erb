@@ -14,7 +14,7 @@
 	   						<% if current_user.following?(user) %>
 								<%= button_to 'フォロー中',user_unfollow_path(user.id),method: :post,class:"border btn btn-light btn-sm",data: {confirm: "フォローを外しますか？"}  %>
 							<% else %>
-								<%= button_to 'フォロー',user_follow_path(user.id),method: :post,class:"btn btn-primary btn-sm" %>
+								<%= button_to 'フォローする',user_follow_path(user.id),method: :post,class:"btn btn-primary btn-sm" %>
 							<% end %>
 						<% end %>
 					</td>

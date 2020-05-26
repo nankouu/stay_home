@@ -2,15 +2,14 @@ class User::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
     @users = User.all
-    @favorite = Favorite.new
-    if params[:category_id]
-      @selected_category = Category.find(params[:category_id])
-      @posts = Post.from_category(params[:category_id]).page(params[:page])
-    else
-      @posts = Post.all.page(params[:page])
-    end
+
+  if params[:tag]
+    @posts = Post.tagged_with(params[:tag])
+  else
+    @posts = Post.search(params[:search])
+  end
+
   end
 
   def show
@@ -26,12 +25,10 @@ class User::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save!
+    if @post.save
       redirect_to user_post_path(@post)
     else
-      @posts = Post.all
-      @user = current_user
-      render :index
+      render :new
     end
   end
 

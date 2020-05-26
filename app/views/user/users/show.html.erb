@@ -1,5 +1,5 @@
 <div class="row">
-   <div class="col-md-3  m-4 user_profile border">
+   <div class="col-md-3  m-4 user_profile border" style="height: 19rem;">
 	   	<div  style="text-align: center;">
 				<%= attachment_image_tag @user, :image,:fill, 70,70, format: "jpeg",fallback:"no_image.jpg",size:"70x70",class: "user_image" %>
 			<br />
@@ -10,8 +10,10 @@
 		<div class="mb-2" style="text-align: center;">
 			<div class="d-flex align-items-start">
 				<div class="p-2">
+					<%= link_to new_user_post_path do %>
 						<small>投稿</small>
-					<%= @user.posts.count %>
+						<%= @user.posts.count %>
+					<% end %>
 				</div>
 				<div class="p-2">
 					<%= link_to follows_user_user_path do %>
@@ -43,7 +45,7 @@
 				      <%= fields_for @entry do |e| %>
 				        <%= e.hidden_field :user_id, :value=> @user.id %>
 				      <% end %>
-				      <%= f.submit "DMを始める",class:"btn btn-warning" %>
+				      <%= f.submit "DMを始める",class:"btn btn-outline-danger" %>
 				    <% end %>
 				  <% end %>
 				<% end %>
@@ -52,7 +54,7 @@
 
 
 
-	<div class="col-md-8">
-		<%= render 'user/posts/posts',posts: @user.posts %>
+	<div class="col-md-8" style="padding-top: 2rem;">
+		<%= render 'user/posts/posts' ,posts: @user.posts %>
 	</div>
 </div>

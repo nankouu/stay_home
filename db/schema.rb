@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2020_05_24_050339) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_categories_on_name", unique: true
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -65,14 +58,6 @@ ActiveRecord::Schema.define(version: 2020_05_24_050339) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-    t.boolean "is_valid", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
@@ -83,24 +68,14 @@ ActiveRecord::Schema.define(version: 2020_05_24_050339) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "post_categories", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_post_categories_on_category_id"
-    t.index ["post_id", "category_id"], name: "index_post_categories_on_post_id_and_category_id", unique: true
-    t.index ["post_id"], name: "index_post_categories_on_post_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "image_name"
     t.integer "user_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
   end
 
   create_table "relationships", force: :cascade do |t|
