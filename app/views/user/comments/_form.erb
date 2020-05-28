@@ -1,9 +1,10 @@
 <%= form_with(model: [post,comment],url:user_post_comments_path(post),method: :post) do |f| %>
     <div class="row">
-        <div class="col-sm-6">
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+        <div class="col-sm-12">
+            <td><%= f.text_area :comment,class: "form-control",placeholder: "コメントを追加" %></td>
+            <div style="text-align: right;"><%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %></div>
         </div>
-    
-    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+
+
 <% end %>
   	</div>

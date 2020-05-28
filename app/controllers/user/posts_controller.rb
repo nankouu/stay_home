@@ -62,6 +62,7 @@ class User::PostsController < ApplicationController
     @user = User.find(current_user.id)
     @follow_users = @user.following_user
     @posts = @posts_all.where(user_id: @follow_users).order("created_at DESC").page(params[:page]).per(10)
+    @comment = Comment.new
   end
 
   private

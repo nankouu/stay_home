@@ -35,25 +35,32 @@
 				</div>
 			</div>
 		</div>
-
-		<br />
 		<div style="text-align: center">
 				<% if current_user.id == @user.id %>
 					<%= link_to "プロフィール編集",edit_user_user_path ,class:"btn btn-outline-secondary" %>
 				<% end %>
 
 				<% unless @user.id == current_user.id %>
-				  <% if @isRoom == true %>
-				    <%= link_to "DMへGo!", user_room_path(@roomId),class:"btn btn-warning" %>
-				  <% else %>
-				    <%= form_for @room, url:user_rooms_path ,method: :post do |f| %>
+					<div class="mb-2">
+						<% if current_user.following?(@user) %>
+							<%= button_to 'フォロー中',user_unfollow_path(@user.id),method: :post,class:"border btn btn-light btn-sm",data: {confirm: "フォローを外しますか？"}  %>
+						<% else %>
+							<%= button_to 'フォローする',user_follow_path(@user.id),method: :post,class:"btn btn-primary btn-sm" %>
+						<% end %>
+					</div>
 
-				      <%= fields_for @entry do |e| %>
-				        <%= e.hidden_field :user_id, :value=> @user.id %>
-				      <% end %>
-				      <%= f.submit "DMを始める",class:"btn btn-outline-danger" %>
-				    <% end %>
-				  <% end %>
+					  <% if @isRoom == true %>
+					    <%= link_to "DMへGo!", user_room_path(@roomId),class:"btn btn-outline-danger" %>
+					  <% else %>
+					    <%= form_for @room, url:user_rooms_path ,method: :post do |f| %>
+
+					      <%= fields_for @entry do |e| %>
+					        <%= e.hidden_field :user_id, :value=> @user.id %>
+					      <% end %>
+					      <%= f.submit "DMを始める",class:"btn btn-outline-danger" %>
+					    <% end %>
+					  <% end %>
+
 				<% end %>
 		</div>
 	</div>

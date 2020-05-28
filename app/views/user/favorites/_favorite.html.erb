@@ -1,14 +1,24 @@
 <!-- いいね機能 -->
 	<% if post.favorited_by?(current_user) %>
 	    <td><%= link_to user_post_favorites_path(post), method: :delete, remote: true do %>
+		    <div class="link_text">
 		      <%= post.favorites.count %>
-		      <i class="fas fa-heart text-primary mb-0" aria-hidden="true"></i>
+		  </div>
+		      <h4 class="fas fa-heart text-danger mb-0" aria-hidden="true"></h4>
 		    <% end %>
+		    <%= post.comments.count %>
+			  <h4 class="far fa-comment mb-0" aria-hidden="true"></h4>
 	    </td>
 	<% else %>
 
-	    <td><%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
-		      <%= post.favorites.count %> <i class="far fa-heart mb-0" aria-hidden="true"></i>
-		    <% end %></td>
+	    <td>
+		    	<%= link_to user_post_favorites_path(post), method: :post, remote: true do %>
+		    	<div class="link_text">
+			      <%= post.favorites.count %> <h4 class="far fa-heart mb-0" aria-hidden="true"></h4>
+			  	</div>
+			    <% end %>
+			<%= post.comments.count %>
+			<h4 class="far fa-comment mb-0" aria-hidden="true"></h4>
+			</td>
 	<% end %>
 

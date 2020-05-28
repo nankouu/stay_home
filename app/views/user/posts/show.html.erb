@@ -12,23 +12,28 @@
 		</div>
 		<strong style="font-size: 2rem"><%= @post.title %></strong>
 		<br />
-		<%= attachment_image_tag @post, :image,:fill, 600,700, format: "jpeg",fallback:"no_image.jpg"%>
+			<%= attachment_image_tag @post, :image,:fill, 600,700, format: "jpeg",fallback:"no_image.jpg"%>
 
 		<br />
 		<h4 style="padding-top: 30px;"><%= @post.body %></h4>
 
+		<td style="text-align: right;"># <%= raw(@post.tag_list.map { |t| link_to t, user_tag_path(t) }.join(' # ')) %></td>
 		<br />
-		<%= link_to "destroy",user_post_path(@post),method: :delete %>
 
-		<%= link_to "edit",edit_user_post_path(@post) %>
-
-		<%= link_to "back",user_posts_path(@posts) %>
+	<% if current_user.id == @post.user.id %>
+		<div style="text-align: right;">
+			<%= link_to "削除",user_post_path(@post),method: :delete %>
+			<%= link_to "編集",edit_user_post_path(@post) %>
+		</div>
+	<% end %>
 
 
 			<div class="border"></div>
+			<div id= "#favorite-<%= @post.id %>">
 			<%= render 'user/favorites/favorite',post: @post %>
+			</div>
 
-		<div id = "comments_area">
+		<div style = "padding-top: 2rem;"id = "comments_area">
 			<%= render 'user/comments/index',post: @post,user: @user,comment: @comment %>
 		</div>
 			<%= render 'user/comments/form',post: @post,comment: @comment %>

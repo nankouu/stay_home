@@ -1,21 +1,13 @@
-
-        <td>コメント"<%= post.comments.count %>件"</td>
-
-        <td></td>
-
-       </tbody>
-     </table>
-
-
-        <% post.comments.each do |comment| %>
-          <% unless comment.id.nil? %>
-            <p><%= attachment_image_tag comment.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image"%>
-            <%= comment.comment %></p>
-            <%= link_to "#{comment.user.name}", user_user_path(comment.user.id) %>
-            <% if comment.user == current_user %>
-            <div style="text-align: right;">
-              <%= link_to '削除する', user_post_comment_path(post,comment), method: :delete, remote: true ,class:"btn btn-danger" %></p>
-            </div>
-            <% end %>
-          <% end %>
-        <% end %>
+<% post.comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <%= attachment_image_tag comment.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image"%>
+      <%= comment.comment %>
+    <br/>
+    <%= link_to "#{comment.user.name}", user_user_path(comment.user.id) %>
+    <% if comment.user == current_user %>
+    <div style="text-align: right;">
+      <small><%= link_to '削除する', user_post_comment_path(post,comment), method: :delete, remote: true %></small>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
