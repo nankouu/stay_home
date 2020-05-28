@@ -1,14 +1,36 @@
-<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
-<%= @user.name %>
-<br />
-<%= link_to "edit",edit_user_user_path %>
-<br />
-<%= link_to "back",user_users_path %>
-<br />
-<%= link_to "favorites",user_favorites_path %>
-<br />
-<%= link_to "フォロー", follows_user_user_path %>
-<br />
-<%= link_to "フォロワー",followers_user_user_path %>
-<br />
-<%= link_to "退会する",destroy_user_user_path,method: :patch,data: {confirm: "本当に退会しますか？"} %>
+<div class="row">
+    <div class="col-xs-3">
+		<%= attachment_image_tag @user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%>
+		<%= @user.name %>
+		<br />
+		<%= @user.introduction %>
+		<br />
+		投稿
+		<%= @user.posts.count %>
+		フォロー
+		<%= @user.follower.count %>
+		フォロワー
+		<%= @user.followed.count %>
+		<br />
+		<%= link_to "編集",edit_admin_user_path %>
+	</div>
+
+	<div class="col-xs-7">
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>header</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @user.posts.each do |post| %>
+			<tr>
+				<td><%= post.title %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+</div>

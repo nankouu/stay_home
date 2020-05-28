@@ -1,31 +1,22 @@
-<table>
-	<thead>
-		<tr>
-			<th>image</th>
-			<th>title</th>
-			<th>body</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
-			<td><%= @post.title %></td>
-			<td><%= @post.body%></td>
-		</tr>
-	</tbody>
-</table>
+<div class="row">
+	<div class="col-xs-6">
+		<%= link_to admin_user_path(@post.user) do %>
+			<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60"%>
+			<%= @post.user.name %>
+		<% end %><br />
+			<%= attachment_image_tag @post, :image,:fill, 400,400, format: "jpeg",fallback:"no_image.jpg"%><br />
+	</div>
+	<div class="col-xs-5" style="margin-left: 100px;">
+	<strong>タイトル：<%= @post.title %></strong><br />
+	<%= @post.body%><br />
 
-<%= @post.title %>
-<%= @post.body %>
 
-<br />
-<%= link_to "edit",edit_user_post_path(@post) %>
-<br />
-<%= link_to "back",user_posts_path(@posts) %>
+	<%= link_to "削除する",user_post_path(@post),method: :delete,data: {confirm: "本当に削除しますか？"}  ,class: "m-4"%>
 
 
 
-<div id = "comments_area">
-	<%= render 'user/comments/index',post: @post,user: @user,comment: @comment %>
+		<div id = "comments_area">
+			<%= render 'user/comments/index',post: @post,user: @user,comment: @comment %>
+		</div>
+	</div>
 </div>
-	<%= render 'user/comments/form',post: @post,comment: @comment %>

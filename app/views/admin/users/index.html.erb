@@ -1,27 +1,21 @@
 <div class = "row">
 	<div class="col-xs-12">
-		<table class = "table table-striped"　style="table-layout:fixed;">
+		<table class = "table table-striped">
 			<thead>
 				<tr>
 					<th style="width:200px;">image</th>
 					<th style="width:200px;">name</th>
+					<th style="width:300px;">introduction</th>
 					<th style="width:200px;">show</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @users.each do |user| %>
 				<tr>
-					<td><%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
+					<td><%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60"%></td>
 					<td><%= user.name %></td>
-					<td><%= link_to "show",user_user_path(user) %></td>
-					<td><% if current_user.id != user.id %>
-	   						<% if current_user.following?(user) %>
-								<%= button_to 'Unfollow',user_unfollow_path(user.id),method: :post,class:"btn btn-danger",data: {confirm: "フォローを外しますか？"}  %>
-							<% else %>
-								<%= button_to 'Follow',user_follow_path(user.id),method: :post,class:"btn btn-primary" %>
-							<% end %>
-						<% end %>
-					</td>
+					<td><%= user.introduction %></td>
+					<td><%= link_to "show",admin_user_path(user) %></td>
 				</tr>
 				<% end %>
 			</tbody>

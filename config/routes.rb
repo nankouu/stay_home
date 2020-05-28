@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   	resources :users, only: [:index, :show, :edit, :update, :destroy]
   	resources :posts, only: [:index, :show, :edit, :destroy]
   	resources :genres, only: [:index, :create, :destroy ,:edit,:update]
-  	root 'home#index'
+  	root 'posts#index'
   end
 
   namespace :user do

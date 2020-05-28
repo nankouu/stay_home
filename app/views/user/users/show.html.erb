@@ -11,20 +11,26 @@
 			<div class="d-flex align-items-start">
 				<div class="p-2">
 					<%= link_to new_user_post_path do %>
+					  <div class="link_text">
 						<small>投稿</small>
 						<%= @user.posts.count %>
+					</div>
 					<% end %>
 				</div>
 				<div class="p-2">
 					<%= link_to follows_user_user_path do %>
+					<div class="link_text">
 						<small>フォロー</small>
 						<%= @user.follower.count %>
+					</div>
 					<% end %>
 				</div>
 				<div class="p-2">
-					<%= link_to followers_user_user_path do%>
+					<%= link_to followers_user_user_path do %>
+					<div class="link_text">
 						<small>フォロワー</small>
 						<%= @user.followed.count %>
+					</div>
 					<% end %>
 				</div>
 			</div>
@@ -33,7 +39,7 @@
 		<br />
 		<div style="text-align: center">
 				<% if current_user.id == @user.id %>
-					<%= link_to "プロフィール編集",edit_user_user_path ,class:"btn btn-secondary" %>
+					<%= link_to "プロフィール編集",edit_user_user_path ,class:"btn btn-outline-secondary" %>
 				<% end %>
 
 				<% unless @user.id == current_user.id %>
@@ -55,6 +61,6 @@
 
 
 	<div class="col-md-8" style="padding-top: 2rem;">
-		<%= render 'user/posts/posts' ,posts: @user.posts %>
+		<%= render 'user/posts/posts',posts: @user.posts %>
 	</div>
 </div>

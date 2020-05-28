@@ -15,7 +15,6 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
-    @genres = Genre.where(is_valid:'1')
   end
 
   def new

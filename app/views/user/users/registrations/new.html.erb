@@ -1,35 +1,43 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-4"></div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+  <div class="card col-md-11" style="width: 350px; height: 600px; text-align: center;">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <logo class="logo" style="padding-top: 15px;font-size: 40px;">stay home</logo>
+      <strong><p style="opacity: 60%;">登録して友達の写真をチェックしよう</p></strong>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "email",:placeholder => "ユーザネーム",class: "m-1" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "メールアドレス" ,class: "m-1"%>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password",:placeholder => "パスワード（6文字以上）",class: "m-1" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",:placeholder => "パスワード 確認" ,class: "m-1"%>
+    </div>
 
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+    <div class="actions">
+      <%= f.submit "登録する",class: "btn btn-primary w-50 m-2" %>
+    </div>
+
+  <% end %>
+
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end %>
+
+  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %> <br/>
+
+  <%= link_to "アカウントをお持ちの方はこちら", new_session_path(resource_name) %>
+</div>
+
+</div>

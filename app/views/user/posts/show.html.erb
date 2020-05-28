@@ -4,20 +4,18 @@
 	<div class="col-md-7">
 		<div style="padding-top: 10px;">
 			<%= link_to user_user_path(@post.user) do %>
-				<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg" ,class: "user_image" %>
-				<%= @post.user.name %>
+				<div class="link_text">
+					<%= attachment_image_tag @post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60" ,class: "user_image" %>
+					<%= @post.user.name %>
+				</div>
 			<% end %>
 		</div>
+		<strong style="font-size: 2rem"><%= @post.title %></strong>
 		<br />
 		<%= attachment_image_tag @post, :image,:fill, 600,700, format: "jpeg",fallback:"no_image.jpg"%>
 
 		<br />
-		<strong style="font-size: 3rem"><%= @post.title %></strong>
-
-		<br />
-		<div class="post_body">
-			<%= @post.body %>
-		</div>
+		<h4 style="padding-top: 30px;"><%= @post.body %></h4>
 
 		<br />
 		<%= link_to "destroy",user_post_path(@post),method: :delete %>

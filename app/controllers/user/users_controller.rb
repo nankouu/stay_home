@@ -6,7 +6,7 @@ class User::UsersController < ApplicationController
   end
 
    def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
     if @user.id == current_user.id
@@ -42,9 +42,8 @@ class User::UsersController < ApplicationController
 
   #退会する
   def destroy
-    @user = User.find(current_user.id)
-    @user.toggle!(:is_cancel)
-    reset_session
+    user = User.find(params[:id]) #ユーザ毎の情報を得る
+    user.destroy #ユーザ情報を削除（退会）
     redirect_to root_path
   end
 

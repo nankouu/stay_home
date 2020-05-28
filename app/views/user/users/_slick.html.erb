@@ -1,7 +1,7 @@
 <p style="text-align: left; opacity: 50%;"><strong>フォローする人を見つけよう</strong></p>
 <div class="slick-box<%= slick_number %>">
 	<% users.each do |user| %>
-		<%= link_to user_user_path(user), class:"no_decoration" do %>
+		<%= link_to user_user_path(user), class: "no_decoration link_text" do %>
 		<div class="slick_capsule">
 			<div class = "slick_body card">
 		    	<%= attachment_image_tag user, :image, :fill, 60, 60, fallback: "no_image.jpg", size:"60x60",class: "slick_image" %>

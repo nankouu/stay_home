@@ -1,36 +1,72 @@
-<h2>Log in</h2>
+<div class="row">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
-  </div>
+ <div class="card col-md-4" style="width: 350px; height: 450px; text-align: center;">
+    <logo class="logo" style="padding-top: 15px;font-size: 40px;">stay home</logo>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "Email",class: "m-3" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password",:placeholder => "Password",class:"m-3" %>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-  <div class="field">
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
-  </div>
+      <div style="text-align: center">
+        <%= f.submit "ログイン" ,class: "btn btn-primary w-50"%>
+      </div>
+
+          <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+          <% end %>
   <% end %>
+ <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <small><%= link_to "パスワードを忘れた場合", new_password_path(resource_name) %></small><br />
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+    <% end %>
+
+    <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+    <% end %>
+
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+      <% end %>
+    <% end %>
+    <%= link_to 'ゲスト(簡単ログイン)', users_guest_sign_in_path, method: :post %>
+
+
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="col-md-8">
+      <div class="slide">
+        <img src="/images/dog.jpg">
+        <img src="/images/home1.jpg">
+        <img src="/images/stayhome2.jpg">
+      </div>
+  </div>
+</div>
 
-<%= link_to 'ゲストログイン(簡単ログイン)', users_guest_sign_in_path, method: :post %>
+
+<div class="row">
+    <div class="card col-md-4" style="width: 350px; height: 70px;margin-top: 20px;padding-top: 13px; text-align: center;">
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <div><%= link_to "アカウントを登録する", new_registration_path(resource_name) ,class: "btn btn-outline-info w-80" %></div>
+      <% end %>
+    </div>
+
+</div>
+
+    
+
 
 
