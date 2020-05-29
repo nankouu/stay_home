@@ -26,7 +26,7 @@
 					<td><%= post.user.name %>
 					<td><%= link_to post.title,user_post_path(post) %></td>
 					<td><i class="fa fa-heart"></i><%= post.favorites.count %></td>
-					<td><%= link_to "destroy",user_post_path(post),method: :delete %></td>
+					<td><%= link_to "destroy",admin_post_path(post),method: :delete %></td>
 				</tr>
 				<% end %>
 			</tbody>
