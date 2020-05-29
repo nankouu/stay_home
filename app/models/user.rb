@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :rooms, through: :entries
   attachment :image
 
+
+
   	def self.search(search)
       return User.all unless search
       User.where(['name LIKE ?', "%#{search}%"])

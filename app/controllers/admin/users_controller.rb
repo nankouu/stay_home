@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 	before_action :authenticate_admin!
   def index
-  	@users = User.all
+  	@users = User.search(params[:search])
   end
 
   def show
@@ -24,7 +24,17 @@ class Admin::UsersController < ApplicationController
   def destroy
     user = User.find(params[:id]) #ユーザ毎の情報を得る
     user.destroy #ユーザ情報を削除（退会）
-    redirect_to root_path
+    redirect_to admin_users_path
+  end
+
+  def search
+    @user_or_post = params[:option]
+    @how_search = params[:choice]
+    if @user_or_post == "1"
+      @users = User.search(params[:search],@user_or_post,@how_search)
+    else
+      @posts = Post.search(params[:search],@user_or_post,@how_search)
+    end
   end
 
   private

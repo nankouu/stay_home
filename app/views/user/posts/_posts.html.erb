@@ -22,37 +22,3 @@
 
 <% end %>
 
-<style>
-	.posts {
-  position: relative;
-}
-.items:nth-child(4n) {
-  margin-right: 0 !important;
-}
-.sample3 {
-  overflow:   hidden;
-  position: relative;
-}
-.sample3 .caption {
-  font-size:    130%;
-  color:      #fff;
-  padding-top:    100px;
-  padding-right:   100px;
-}
-.sample3 .mask {
-  width:      100%;
-  height:     100%;
-  position:   absolute;
-  top:      0;
-  left:     0;
-  opacity:    0;  /* マスクを表示しない */
-  box-shadow: inset 0 0 2rem 1rem rgba(0, 0, 0, 0.5);
-  background-color: rgba(0,0,0,.3);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition:   all 0.3s ease-in-out;
-}
-.posts:hover .mask {
-  opacity:    1;  /* マスクを表示する */
-  padding-left:   35%; /* 右にずらす */
-}
-</style>

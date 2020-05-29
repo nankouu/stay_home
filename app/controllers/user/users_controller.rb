@@ -33,7 +33,7 @@ class User::UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	if @user.update!(user_params)
+  	if @user.update(user_params)
   		redirect_to user_user_path(@user)
   	else
   		render :edit
@@ -42,8 +42,9 @@ class User::UsersController < ApplicationController
 
   #退会する
   def destroy
-    user = User.find(params[:id]) #ユーザ毎の情報を得る
-    user.destroy #ユーザ情報を削除（退会）
+    @user = User.find(current_user.id)
+    @user.toggle!(:is_cancel)
+    reset_session
     redirect_to root_path
   end
 

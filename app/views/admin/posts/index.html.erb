@@ -1,5 +1,11 @@
 <div class="row">
     <div class="col-xs-12">
+    	<div class="form">
+			<%= form_tag(admin_posts_path,:method => 'get') do %>
+			  <%= text_field_tag :search %>
+			  <%= submit_tag '投稿検索', :name => nil ,class:"btn btn-outline-success btn-sm" %>
+			<% end %>
+		</div>
 		<table class = "table table-striped">
 			<thead>
 				<tr>

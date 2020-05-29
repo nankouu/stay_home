@@ -13,7 +13,7 @@
           <div class="footer_text">
             <dt class= "footer_dt mb-2">stay homeについて</dt>
             <dd class="footer_dd"><%= link_to "ログアウト",destroy_user_session_path, method: :delete,class: "link_text" %></dd>
-            <dd class="footer_dd"><%= link_to "退会する",destroy_user_user_path(current_user),method: :patch,data: {confirm: "本当に退会しますか？"} ,class: "link_text" %></dd>
+            <dd class="footer_dd"><%= link_to "退会する",destroy_user_user_path(current_user),method: :post,data: {confirm: "本当に退会しますか？"} ,class: "link_text" %></dd>
           </div>
         </dl>
         <dl class= "col-sm-3 text-center">

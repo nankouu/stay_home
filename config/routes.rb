@@ -8,8 +8,12 @@ Rails.application.routes.draw do
    end
 
   namespace :admin do
-  	resources :users, only: [:index, :show, :edit, :update, :destroy]
-  	resources :posts, only: [:index, :show, :edit, :destroy]
+  	resources :users, only: [:index, :show, :edit, :update, :destroy] do
+  	 collection do
+      get 'search'
+     end
+    end
+    resources :posts, only: [:index, :show, :edit, :destroy]
   	resources :genres, only: [:index, :create, :destroy ,:edit,:update]
   	root 'posts#index'
   end

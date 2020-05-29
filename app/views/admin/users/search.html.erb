@@ -1,0 +1,44 @@
+<% if @user_or_post == "1"%>
+<h2>User</h2>
+    <table class = "table table-striped">
+
+        <thead>
+            <tr>
+                <th>image</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <% @users.each do |user| %>
+        <tbody>
+            <tr>
+                <td><%= attachment_image_tag user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
+                <td><%= user.name %></td>
+                <td><%=link_to "show", admin_user_path(user) %></td>
+            </tr>
+        </tbody>
+        <% end %>
+    </table>
+
+<% elsif @user_or_post == "2" %>
+    <h2>Posts</h2>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>image</th>
+                <th>title</th>
+                <th>body</th>
+            </tr>
+        </thead>
+
+    <% @posts.each do |post| %>
+        <tbody>
+            <tr>
+                <td><%= attachment_image_tag post.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg"%></td>
+                <td><%= post.title %></td>
+                <td><%= post.body %></td>
+            </tr>
+        </tbody>
+    <% end %>
+    </table>
+<% else %>
+<% end %>

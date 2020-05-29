@@ -1,36 +1,42 @@
-<%= form_for(@post, url:user_post_path) do |f| %>
-	<div class="form-row mb-4">
-        <div class="col">
-          <div class="custom-file">
-          <%= f.attachment_field :image,class: "custom-file-input" %>
-          <label class="custom-file-label" for="customFile">画像のアップロード</label>
+<div class="row">
+  <div clas="col-md-12">
+    <div class="d-flex flex-column">
+    <%= form_for(@post, url:user_post_path) do |f| %>
+    	<div class="form-row mb-4">
+            <div class="col">
+              <div class="custom-file">
+              <%= f.attachment_field :image,class: "custom-file-input" %>
+              <label class="custom-file-label" for="customFile">画像のアップロード</label>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="form-row mb-4">
-        <div class="col">
-        	<%= f.label :"タイトル" %>
-        	<%= f.text_field :title, class: "form-control" %>
-        </div>
-      </div>
+          <div class="form-row mb-4">
+            <div class="col">
+            	<%= f.label :"タイトル" %>
+            	<%= f.text_field :title, class: "form-control" %>
+            </div>
+          </div>
 
-      <div class="form-row mb-4">
-        <div class="col">
-        	<%= f.label :"本文" %>
-        	<%= f.text_area :body,size: "20x10",class: "form-control" %>
-        </div>
-      </div>
+          <div class="form-row mb-4">
+            <div class="col">
+            	<%= f.label :"本文" %>
+            	<%= f.text_area :body,size: "20x10",class: "form-control" %>
+            </div>
+          </div>
 
-      <div class="form-row mb-5">
-        <div class="col">
-          <%= f.label "カテゴリー" %>
-          <ul id="post-tags"></ul>
-          <%= hidden_field_tag :category_hidden,@category_list %>
-        </div>
-      </div>
+          <div class="form-row mb-5">
+            <div class="col">
+              <%= f.label "タグ" %>
+              <ul id="post-tags"></ul>
+              <%= hidden_field_tag :category_hidden,@category_list %>
+            </div>
+          </div>
 
-      <div class="actions" style="text-align: right;">
-    <h4><%= f.submit 'Update Book', class: "btn btn-default" %></h4>
+          <div class="actions" style="text-align: right;">
+        <h4><%= f.submit 'Update Book', class: "btn btn-default" %></h4>
+    </div>
+    <% end %>
+    </div>
+  </div>
 </div>
-<% end %>

@@ -77,7 +77,6 @@ gem 'carrierwave'
 gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on'
-gem 'dotenv-rails'
 
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

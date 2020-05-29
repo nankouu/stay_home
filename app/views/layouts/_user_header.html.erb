@@ -4,12 +4,6 @@
 		<nav class="navbar navbar-light">
 					<%= link_to "stay home",user_posts_path ,class: "logo link_text" %>
 
-					<div class="form">
-							<%= form_tag(user_posts_path,:method => 'get') do %>
-							  <%= text_field_tag :search %>
-							  <%= submit_tag '投稿検索', :name => nil ,class:"btn btn-outline-success btn-sm" %>
-							<% end %>
-					</div>
 					<ul class="nav pull-right nav-pills" style="margin-bottom: 2rem;">
 					     <li class="nav-item">
 					     	<%= link_to user_posts_path do %><h4 class="fas fa-home nav-link"></h4><% end %>
@@ -44,7 +38,7 @@
 
 	<div class="collapse" id="collapseExample">
 					  <div class="card card-body">
-					    思いのままに家での暇つぶしや事や考えていることなど文章にしてユーザに共有しましょう。
+					  　家で起こった楽しい出来事や、ハマっている趣味など、どんなことでもいいので投稿してみましょう！
 					  </div>
 				</div>
 

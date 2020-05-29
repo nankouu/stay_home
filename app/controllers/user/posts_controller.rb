@@ -3,13 +3,13 @@ class User::PostsController < ApplicationController
 
   def index
     @users = User.all
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
 
-  if params[:tag]
-    @posts = Post.tagged_with(params[:tag])
-  else
-    @posts = Post.search(params[:search])
-  end
-
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.search(params[:search])
+    end
   end
 
   def show
@@ -33,14 +33,14 @@ class User::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @category_list = @post.categories.pluck(:name).join(",")
+    @category_list = @post.tag_list.pluck(:name).join(",")
   end
 
   def update
     @post = Post.find(params[:id])
     category_list = params[:category_list]
     if @post.update_attributes(post_params)
-      @post.save_categories(category_list)
+      @post.save
       redirect_to user_post_path(@post)
     else
       render :edit

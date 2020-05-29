@@ -1,9 +1,18 @@
 <% post.comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <%= attachment_image_tag comment.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",class: "user_image"%>
-      <%= comment.comment %>
-    <br/>
-    <%= link_to "#{comment.user.name}", user_user_path(comment.user.id) %>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <%= attachment_image_tag comment.user, :image,:fill, 60,60, format: "jpeg",fallback:"no_image.jpg",size:"60x60",class: "user_image"%>
+          <br/>
+          <%= link_to "#{comment.user.name}", user_user_path(comment.user.id) %>
+        </td>
+        <td><%= comment.comment %></td>
+      </tr>
+    </tbody>
+  </table>
+
     <% if comment.user == current_user %>
     <div style="text-align: right;">
       <small><%= link_to '削除する', user_post_comment_path(post,comment), method: :delete, remote: true %></small>

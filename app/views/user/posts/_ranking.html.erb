@@ -1,0 +1,24 @@
+<p>いいねランキング</p>
+<% all_ranks.each.with_index(1) do |post,i| %>
+<div class="d-inline-block posts  mr-2">
+	<%= link_to user_post_path(post) do %>
+	    <div class = "sample3">
+	    	<div class = "mask">
+	    	    <div class ="caption" style="padding:3rem 3rem 0 0;">
+		    	  	<strong>
+		    	  		<small>
+			    	  		<i class="fa fa-heart" style="color: #fff;"><%= post.favorites.count %></i>
+			    			<i class="fas fa-comment" style="color: #fff;"><%= post.comments.count %></i>
+			    		</small>
+		      		</strong>
+	      		</div>
+	      </div>
+			  <%= attachment_image_tag post, :image,:fill, 200,200, format: "jpeg" %>
+
+	    </div>
+	   第<%= i%>位
+	<% end %>
+</div>
+<% end %>
+
+
