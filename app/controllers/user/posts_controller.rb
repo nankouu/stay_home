@@ -33,7 +33,6 @@ class User::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @category_list = @post.tag_list.pluck(:name).join(",")
   end
 
   def update
