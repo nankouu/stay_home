@@ -76,40 +76,6 @@ header ,footer {
 	cursor: pointer;
 }
 
-.fukidashi {
-   position   : absolute;
-  display: none;
-  padding: 2px;
-  background-color: rgba(102, 102, 255, 0.50);
-  width:180px;
-  left : 30%;
-  top : 100%;
-  margin-top : 12px;
-  font-size: 80%;
-}
-
-.fukidashi:after {
-   border-bottom: 12px solid rgba(102, 102, 255, 0.50);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  top: -12px;
-  left : 5%;
-  content: "";
-  position: absolute;
-}
-
-.fa-question:hover + .fukidashi {
-  display: inline;
-}
-
-a,a:focus {
-  outline:none;
-}
-
-button,input,input:focus {
-  outline:none;
-}
-
 .user_profile {
   background-color: #fff;
   padding-top: 3rem;
@@ -121,7 +87,7 @@ button,input,input:focus {
 .slide {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 480px;
   overflow: hidden;
 }
 
