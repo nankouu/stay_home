@@ -1,0 +1,66 @@
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+/home/vagrant/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200531-2985-15f7muc.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR="
+compiling adj_matrix.c
+adj_matrix.c: 関数 ‘adj_matrix_default’ 内:
+adj_matrix.c:87:5: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+     size_t length = sizeof(DEFAULT_ADJ_TABLE) / sizeof(char *);
+     ^
+adj_matrix.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling codepoints.c
+compiling jaro.c
+jaro.c: 関数 ‘jaro_distance_from_codes’ 内:
+jaro.c:41:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   int32_t window_size = (int32_t)len2 / 2 - 1;
+   ^
+jaro.c:45:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   char short_codes_flag[len1];
+   ^
+jaro.c:51:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   size_t match_count = 0;
+   ^
+jaro.c:71:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   size_t transposition_count = 0, j = 0, k = 0;
+   ^
+jaro.c:86:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   size_t similar_count = 0;
+   ^
+jaro.c:98:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   double m = (double)match_count;
+   ^
+jaro.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+compiling jaro_winkler.c
+jaro_winkler.c: 関数 ‘distance’ 内:
+jaro_winkler.c:35:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   Options c_opt = DEFAULT_OPTIONS;
+   ^
+jaro_winkler.c:56:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   CodePoints cp1, cp2;
+   ^
+jaro_winkler.c:59:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   VALUE ret = rb_float_new(
+   ^
+jaro_winkler.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-self-assign" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-constant-logical-operand" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-parentheses-equality" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-tautological-compare" です [デフォルトで有効]
+linking shared-object jaro_winkler/jaro_winkler_ext.so
+
+current directory: /home/vagrant/work/stay_home/vendor/bundle/ruby/2.5.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 jaro_winkler_ext.so ./.gem.20200531-2985-v6ni32/jaro_winkler

@@ -10,5 +10,4 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     get comments_edit_url
     assert_response :success
   end
-
 end

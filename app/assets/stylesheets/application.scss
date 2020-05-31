@@ -196,3 +196,18 @@ button,input,input:focus {
   opacity:    1;  /* マスクを表示する */
   padding-left:   35%; /* 右にずらす */
 }
+
+@media(max-width:425px){
+    header {
+        width: 100%;
+    }
+    body {
+      width: 100%;
+    }
+    .navbar {
+      display:  none;
+    }
+}
+
+
+

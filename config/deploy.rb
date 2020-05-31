@@ -2,11 +2,11 @@
 lock "~> 3.14.0"
 
 set :application, "stay_home"
-set :repo_url, 	"git@github.com:nankouu/stay_home.git"
+set :repo_url, "git@github.com:nankouu/stay_home.git"
 
 set :deploy_to, "/home/ec2-user/stay_home"
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w{config/master.key .env}
+set :linked_files, %w(config/master.key .env)
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default branch is :master

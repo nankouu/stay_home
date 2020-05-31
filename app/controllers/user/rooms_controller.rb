@@ -9,9 +9,8 @@ class User::RoomsController < ApplicationController
       myRoomIds << entry.room.id
     end
 
-    @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?',current_user.id)
+    @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?', current_user.id)
   end
-
 
   def create
     @room = Room.create
@@ -31,4 +30,3 @@ class User::RoomsController < ApplicationController
     end
   end
 end
-

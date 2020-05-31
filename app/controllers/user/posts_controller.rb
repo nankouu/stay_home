@@ -57,7 +57,7 @@ class User::PostsController < ApplicationController
   end
 
   def following_posts
-    @posts_all = Post.includes(:user,:favorites)
+    @posts_all = Post.includes(:user, :favorites)
     @user = User.find(current_user.id)
     @follow_users = @user.following_user
     @posts = @posts_all.where(user_id: @follow_users).order("created_at DESC").page(params[:page]).per(10)
@@ -65,7 +65,8 @@ class User::PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:title,:body,:image,:genre_id,:tag_list)
-    end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :image, :genre_id, :tag_list)
+  end
 end

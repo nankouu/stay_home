@@ -10,5 +10,4 @@ class Admin::PostsControllerTest < ActionDispatch::IntegrationTest
     get admin_posts_show_url
     assert_response :success
   end
-
 end

@@ -4,12 +4,13 @@
     <title>StayHome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset='UTF-8'>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600;800&family=Noto+Sans+JP:wght@100;300;400;500;700;800&family=M+PLUS+Rounded+1c:wght@900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
@@ -46,3 +47,18 @@
   </body>
 </html>
 
+
+<style>
+
+@media screen and (max-width:425px){
+    header {
+        width: 100%;
+    }
+    body {
+      width: 100%;
+    }
+    .navbar {
+      display:  none;
+    }
+}
+</style>
