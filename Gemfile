@@ -72,8 +72,10 @@ gem 'bootstrap'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'pry-rails'
-gem "refile", github: 'refile/refile', require: "refile/rails"
-gem "refile-mini_magick", github: 'refile/refile-mini_magick'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem "refile-s3"
 
 gem 'font-awesome-sass'
 gem 'dotenv-rails'
