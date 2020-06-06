@@ -1,8 +1,8 @@
 require "refile/s3"
 
 aws = {
-  access_key_id: "AWS_ACCESS_KEY_ID",
-  secret_access_key: "AWS_SECRET_ACCESS_KEY",
+  access_key_id: 'AKIA2OCGFRDX4MRDBOSN',
+  secret_access_key: 'fxFtxlh937gAGG3yu/N5Sgze3aqCh9D2Z3w9Zjjf',
   region: "us-east-2",
   bucket: "samplebacket405",
 }
