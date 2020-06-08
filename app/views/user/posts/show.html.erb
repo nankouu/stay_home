@@ -30,7 +30,7 @@
 
 			<div class="border"></div>
 			<div id= "#favorite-<%= @post.id %>">
-			<%= render 'user/favorites/favorite',post: @post %>
+			<%= render 'user/favorites/favorite',post: @post ,favorites: @favorites %>
 			</div>
 
 		<div style = "padding-top: 2rem;"id = "comments_area">
